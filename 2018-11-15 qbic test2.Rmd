@@ -1,0 +1,89 @@
+---
+title: "2018-11-15 qbic test 2"
+author: "Theresa Swayne"
+date: "11/15/2018"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(dplyr)
+library(readr)
+library(knitr)
+```
+
+## Changes to improve nuclei detection
+
+From the previous test we proposed:
+
+1. Instead of a mask, save more specific documentation of the particles CP detected
+2. Find out if the additional particles CP detects are the source of the low intensities
+3. Figure out how to filter the particles to limit to legitimate nuclei -- suppress unwanted divisions.
+
+Because Test 1 produced a good mask but a lot of low-intensity object detections, I suspected that nuclei were being split into separate objects. To prevent this, the splitting function was turned off entirely.
+
+To prevent false positives in empty fields, a minimum threshold setting of 0.01 (relative to image intensity) was used.
+
+## Testing nuclear detection and DNA content analysis
+
+The background-corrected integrated intensity ("total intensity") of nuclei should be proportional to DNA content.
+
+The DNA content in a mixed population of actively cycling cells should form a roughly bimodal distribution representing 1N and 2N populations, with some intermediate cells in S phase.
+
+CellProfiler pipelines were used to perform background correction, identify nuclei using DAPI, and measure intensity of DAPI and other channels in a set of 100 images collected on 11-5-2018.
+
+Reading the data from CellProfiler, we focus on the corrected integrated intensity from Channel 1, DAPI:
+
+```{r reading DNA data}
+qbic_C1DNANuclei <- read_csv("~/Desktop/output/qbic_C1DNANuclei.csv")
+#dnaTotalInt <- qbic_C1DNANuclei$Intensity_IntegratedIntensity_Channel1DNA
+dnaTotalInt <- qbic_C1DNANuclei$Intensity_IntegratedIntensity_Channel1DNACorr
+```
+
+
+Plotting a histogram of the DNA content over all 922 nuclei detected:
+
+```{r DNA content, echo=TRUE} 
+# use echo=FALSE to prevent printing code
+hist(dnaTotalInt, breaks = (0:50))
+```
+
+This shows that there is a roughly bimodal distribution with peaks ~ 12 and ~ 24, with tails on either side.
+Compared to test 1, the objects with very low intensity have been essentially eliminated.
+
+```{r proportion of outliers}
+low_vals <- mean(dnaTotalInt < 1)
+high_vals <- mean(dnaTotalInt > 30)
+central_vals <- mean(dnaTotalInt > 1 & dnaTotalInt < 30)
+
+cat(central_vals, "of the values are between 1 and 30; ",low_vals,"<1; and",high_vals,">30")
+```
+
+Ultimately we would like to see an inverted horseshoe-type plot of EdU (showing S phase cells) vs. DNA content where the cells incorporating EdU are primarily those between the 2 peaks.
+
+Generating the other dimension of the plot from the corrected mean intensity from Channel 2, EdU:
+```{r reading EdU data}
+#EdUMeanInt <- qbic_C1DNANuclei$Intensity_MeanIntensity_Channel2EdU
+EdUMeanInt <- qbic_C1DNANuclei$Intensity_MeanIntensity_Channel2EdUCorr
+hist(EdUMeanInt)
+plot(x = dnaTotalInt, y = EdUMeanInt) # basic scatter plot
+```
+
+The horseshoe shape might be starting to emerge.
+
+### Are nuclei detected properly?
+
+Revisiting the 10 randomly selected images we checked in test 1: 
+
+The previous mask matched the visible nuclei very well, so for convenience we can compare the CP object detections to the Analyze Particles detections based on the original mask.
+
+```{r reading quality control data, results = 'asis'}
+qbic_check <- read_csv("~/Desktop/2018-11-05 Demis/2018-11-15 qbic test 2.csv")
+kable(qbic_check[,c(1,2,5)])
+```
+
+
+Now the numbers match much better.
+
+
+

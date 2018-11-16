@@ -1,0 +1,11 @@
+Image,Cells detected by CP,False positives,False negatives,Cells detected by Analyze Particles,Notes
+89,14,,0,9,group of 3 round objects probably is 2 cells but groups of 2 directly adjacent may be mitotic
+51,20,,0,11,
+68,22,,0,16,at least 1 false pos = thread like thing
+85,14,,0,9,analyze particles actually gives 625 for some reason… 1st cell gets measured 616 times. One cell is counted but actually seems to be touching edge.
+31,18,,0,13,
+65,3,,0,3,at least 1 false pos
+36,19,,0,9,clumpy thing at lower center is at least 2 false pos based on analyze particles
+45,47,47,0,39,just junk -- mask looks like the image was auto contrasted
+13,21,,0,11,
+86,15,,0,8,
