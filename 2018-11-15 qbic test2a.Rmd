@@ -1,0 +1,91 @@
+---
+title: "2018-11-15 qbic test 2a"
+author: "Theresa Swayne"
+date: "11/16/2018"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(dplyr)
+library(readr)
+library(knitr)
+```
+
+## Testing nuclear detection and DNA content analysis
+
+The background-corrected integrated intensity ("total intensity") of nuclei should be proportional to DNA content.
+
+The DNA content in a mixed population of actively cycling cells should form a roughly bimodal distribution representing 1N and 2N populations, with some intermediate cells in S phase.
+
+CellProfiler pipelines were used to perform background correction, identify nuclei using DAPI, and measure intensity of DAPI and other channels in a set of 100 images collected on 11-5-2018.
+
+```{r reading DNA data, echo = FALSE}
+qbic_C1DNANuclei <- read_csv("~/Desktop/output/qbic_C1DNANuclei.csv")
+#dnaTotalInt <- qbic_C1DNANuclei$Intensity_IntegratedIntensity_Channel1DNA
+dnaTotalInt <- qbic_C1DNANuclei$Intensity_IntegratedIntensity_Channel1DNACorr
+dim(dnaTotalInt)
+```
+
+
+Plotting a histogram of the DNA content over all ----- nuclei detected:
+
+```{r DNA content, echo=TRUE} 
+# use echo=FALSE to prevent printing code
+hist(dnaTotalInt, breaks = (0:50))
+```
+
+This shows that there is a roughly bimodal distribution with peaks ~ 12 and ~ 24, with tails on either side.
+
+
+```{r proportion of outliers}
+low_vals <- mean(dnaTotalInt < 1)
+high_vals <- mean(dnaTotalInt > 30)
+central_vals <- mean(dnaTotalInt > 1 & dnaTotalInt < 30)
+
+cat(central_vals, "of the values are between 1 and 30; ",low_vals,"<1; and",high_vals,">30")
+```
+
+Ultimately we would like to see an inverted horseshoe-type plot of EdU (showing S phase cells) vs. DNA content where the cells incorporating EdU are primarily those between the 2 peaks.
+
+Generating the other dimension of the plot from the corrected mean intensity from Channel 2, EdU:
+```{r reading EdU data}
+#EdUMeanInt <- qbic_C1DNANuclei$Intensity_MeanIntensity_Channel2EdU
+EdUMeanInt <- qbic_C1DNANuclei$Intensity_MeanIntensity_Channel2EdUCorr
+hist(EdUMeanInt)
+plot(x = dnaTotalInt, y = EdUMeanInt) # basic scatter plot
+```
+
+
+
+### Are nuclei detected properly?
+
+Several images were selected at random and the image of detected objects was compared with the original data. 
+
+<!-- TODO: Insert images here of a general example -->
+ 
+False positives (non-cells counted as objects) and false negatives (cells not included in the object map) were scored manually.
+
+```{r reading quality control data, results = 'asis'}
+qbic_check <- read_csv("~/Desktop/2018-11-05 Demis/2018-11-15 qbic test 2.csv")
+kable(qbic_check[,c(1,2,5)])
+```
+
+<!-- TODO:  count false pos and neg rate -->
+
+## Question: What to do with apparent clumps? 
+
+Some DAPI structures appear to have multiple lobes. Are these multi-lobed nuclei, mitotic cells, or actually multiple cells close together?
+
+<!-- TODO: Insert images here of specific examples of ambiguous multiple cells -->
+
+
+If needed, we can modify the object detection to split objects by shape.
+
+## Summary
+
+* Time of processing with CellProfiler is < 10 min per 100 images for illumination correction and the same for object detection.
+* Nuclei are detected well in this system.
+* We need to decide if some objects should be split or if they are actually single nuclei.
+
+
