@@ -1,0 +1,17 @@
+Image,Cells detected by CP,False positives,False negatives,Notes
+89,9,0,0,
+51,11,0,0,
+31,12,0,0,
+36,9,2,0,
+45,0,0,0,
+13,11,0,0,
+2,7,0,0,CP count based on looking at obj image for this point and below
+12,9,0,0,
+7,13,0,0,
+45,0,0,0,
+43,16,0,0,1 possible false pos (out of focus) lower right
+31,12,0,0,Edge objects inconsistent -- here a cell was detected that is at edge (partial nucleus) but in #43 a cell barely on edge was eliminated
+32,15,0,0,
+29,10,0,0,
+30,14,1,0,false pos = elongated junk
+39,9,0,0,
