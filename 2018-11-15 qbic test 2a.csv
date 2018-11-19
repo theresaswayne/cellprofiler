@@ -5,7 +5,7 @@ Image,Cells detected by CP,False positives,False negatives,Notes
 36,9,2,0,
 45,0,0,0,
 13,11,0,0,
-2,7,0,0,CP count based on looking at obj image for this point and below
+2,7,0,0,
 12,9,0,0,
 7,13,0,0,
 45,0,0,0,

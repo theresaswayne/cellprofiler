@@ -2,7 +2,10 @@
 title: "2018-11-15 qbic test 2a"
 author: "Theresa Swayne"
 date: "11/16/2018"
-output: html_document
+output:
+  word_document: default
+  pdf_document: default
+  html_document: default
 ---
 
 ```{r setup, include=FALSE}
@@ -24,31 +27,31 @@ CellProfiler pipelines were used to perform background correction, identify nucl
 qbic_C1DNANuclei <- read_csv("~/Google Drive/User projects/Demis qbic/test 2-3/qbic_C1DNANuclei.csv")
 #dnaTotalInt <- qbic_C1DNANuclei$Intensity_IntegratedIntensity_Channel1DNA
 dnaTotalInt <- qbic_C1DNANuclei$Intensity_IntegratedIntensity_Channel1DNACorr
-dim(dnaTotalInt)
+cat(length(dnaTotalInt),"cells detected.")
 ```
 
 
-Plotting a histogram of the DNA content over all ----- nuclei detected:
+This is a histogram of the DNA content over all nuclei:
 
 ```{r DNA content, echo=TRUE} 
 # use echo=FALSE to prevent printing code
 hist(dnaTotalInt, breaks = (0:50))
 ```
 
-This shows that there is a roughly bimodal distribution with peaks ~ 12 and ~ 24, with tails on either side.
 
+The histogram shows that there is a roughly bimodal distribution with peaks ~ 12 and ~ 24, and a long upper tail containing few cells.
 
 ```{r proportion of outliers}
 low_vals <- mean(dnaTotalInt < 1) * 100
 high_vals <- mean(dnaTotalInt > 30) * 100
 central_vals <- mean(dnaTotalInt > 1 & dnaTotalInt < 30) * 100
 
-cat(central_vals, "% of the values are between 1 and 30; ",low_vals,"% <1; and",high_vals,"% >30")
+cat(central_vals, "% of the values are between 1 and 30; ",low_vals,"% <1; and",high_vals,"% >30.")
 ```
 
 Ultimately we would like to see an inverted horseshoe-type plot of EdU (showing S phase cells) vs. DNA content where the cells incorporating EdU are primarily those between the 2 peaks.
 
-Generating the other dimension of the plot from the corrected mean intensity from Channel 2, EdU:
+Generating the 2nd dimension of the plot from the corrected mean intensity from Channel 2, EdU:
 ```{r reading EdU data}
 #EdUMeanInt <- qbic_C1DNANuclei$Intensity_MeanIntensity_Channel2EdU
 EdUMeanInt <- qbic_C1DNANuclei$Intensity_MeanIntensity_Channel2EdUCorr
@@ -57,14 +60,21 @@ plot(x = dnaTotalInt, y = EdUMeanInt) # basic scatter plot
 ```
 
 
+Finally, we can look at the mean intensity of gammaH2AX:
+```{r reading gH2AX data}
+gH2AXMeanInt <- qbic_C1DNANuclei$Intensity_MeanIntensity_Channel3gH2AXCorr
+hist(gH2AXMeanInt, breaks = (seq(0.000, 0.050, 0.002)))
+```
 
 ### Are nuclei detected properly?
 
-Several images were selected at random and the image of detected objects was compared with the original data. 
+Several images were selected at random, and the image of detected objects was compared with the original data. 
 
-![Detection of nuclei](/Users/confocal/github_theresaswayne/cellprofiler/detection\ Montage.png)
- 
 False positives (non-cells counted as objects) and false negatives (cells not included in the object map) were scored manually.
+
+![Detection of nuclei in XY point 30, 11/5/18. Left, original DAPI channel. Right, detected objects, each in a different color. Red circle shows a false positive.](/Users/confocal/Desktop/output/test2-3/detection_Montage.png)
+ 
+
 
 ```{r reading quality control data, results = 'asis'}
 qbic_check <- read_csv("~/github_theresaswayne/cellprofiler/2018-11-15 qbic test 2a.csv")
@@ -72,17 +82,34 @@ kable(qbic_check[,(1:5)])
 total_cells <- sum(qbic_check$`Cells detected by CP`)
 false_pos <- 100 * sum(qbic_check$`False positives`)/total_cells
 false_neg <- 100 * sum(qbic_check$`False negatives`)/total_cells
-cat("Out of",total_cells,"cells detected, there were",false_pos,"% false positives and",false_neg,"% false negatives.")
+cat("Out of",total_cells,"cells checked, there were",false_pos,"% false positives and",false_neg,"% false negatives.")
 ```
+
+### How many S-phase cells are EdU-positive, gammaH2AX negative, or both?
+
+S-phase cells were defined based on the histogram as having DNA content between 12 and 24.
+
+EdU-positive cells were defined based on the histogram as having mean intensity >= 0.01.
+
+gH2AX-positive cells were defined based on the histogram as having mean intensity > 0.
+
+<!-- TODO: scatter of EdU, H2AX for filtered S phase cells-->
+
+```{r EdU and H2AX in S-phase cells}
+S_Nuclei <- filter(qbic_C1DNANuclei, Intensity_IntegratedIntensity_Channel1DNACorr > 12 & Intensity_IntegratedIntensity_Channel1DNACorr < 24)
+S_EdUMeanInt <- S_Nuclei$Intensity_MeanIntensity_Channel2EdUCorr
+S_gH2AXMeanInt <- S_Nuclei$Intensity_MeanIntensity_Channel3gH2AXCorr
+
+plot(x = S_EdUMeanInt, y = S_gH2AXMeanInt) # basic scatter plot
+```
+
 
 ## Question: What to do with apparent clumps? 
 
-Some DAPI structures appear to have multiple lobes. Are these multi-lobed nuclei, mitotic cells, or actually multiple cells close together?
+Some DAPI structures appear to have multiple lobes. Are these multi-lobed nuclei, mitotic cells, or actually multiple cells close together? If needed, we can modify the object detection to split objects by shape.
 
-<!-- TODO: Insert images here of specific examples of ambiguous multiple cells -->
+![Examples of clumped nuclei from XY points 21 and 30, 11/5/18.](/Users/confocal/Desktop/output/test2-3/clump_Montage.png)
 
-
-If needed, we can modify the object detection to split objects by shape.
 
 ## Summary
 

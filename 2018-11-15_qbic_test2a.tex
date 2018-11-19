@@ -1,0 +1,341 @@
+\documentclass[]{article}
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\usepackage{fixltx2e} % provides \textsubscript
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+\else % if luatex or xelatex
+  \ifxetex
+    \usepackage{mathspec}
+  \else
+    \usepackage{fontspec}
+  \fi
+  \defaultfontfeatures{Ligatures=TeX,Scale=MatchLowercase}
+\fi
+% use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+% use microtype if available
+\IfFileExists{microtype.sty}{%
+\usepackage{microtype}
+\UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\usepackage[margin=1in]{geometry}
+\usepackage{hyperref}
+\hypersetup{unicode=true,
+            pdftitle={2018-11-15 qbic test 2a},
+            pdfauthor={Theresa Swayne},
+            pdfborder={0 0 0},
+            breaklinks=true}
+\urlstyle{same}  % don't use monospace font for urls
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.77,0.63,0.00}{#1}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\usepackage{longtable,booktabs}
+\usepackage{graphicx,grffile}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+\IfFileExists{parskip.sty}{%
+\usepackage{parskip}
+}{% else
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 2pt minus 1pt}
+}
+\setlength{\emergencystretch}{3em}  % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{0}
+% Redefines (sub)paragraphs to behave more like sections
+\ifx\paragraph\undefined\else
+\let\oldparagraph\paragraph
+\renewcommand{\paragraph}[1]{\oldparagraph{#1}\mbox{}}
+\fi
+\ifx\subparagraph\undefined\else
+\let\oldsubparagraph\subparagraph
+\renewcommand{\subparagraph}[1]{\oldsubparagraph{#1}\mbox{}}
+\fi
+
+%%% Use protect on footnotes to avoid problems with footnotes in titles
+\let\rmarkdownfootnote\footnote%
+\def\footnote{\protect\rmarkdownfootnote}
+
+%%% Change title format to be more compact
+\usepackage{titling}
+
+% Create subtitle command for use in maketitle
+\newcommand{\subtitle}[1]{
+  \posttitle{
+    \begin{center}\large#1\end{center}
+    }
+}
+
+\setlength{\droptitle}{-2em}
+
+  \title{2018-11-15 qbic test 2a}
+    \pretitle{\vspace{\droptitle}\centering\huge}
+  \posttitle{\par}
+    \author{Theresa Swayne}
+    \preauthor{\centering\large\emph}
+  \postauthor{\par}
+      \predate{\centering\large\emph}
+  \postdate{\par}
+    \date{11/16/2018}
+
+
+\begin{document}
+\maketitle
+
+\subsection{Testing nuclear detection and DNA content
+analysis}\label{testing-nuclear-detection-and-dna-content-analysis}
+
+The background-corrected integrated intensity (``total intensity'') of
+nuclei should be proportional to DNA content.
+
+The DNA content in a mixed population of actively cycling cells should
+form a roughly bimodal distribution representing 1N and 2N populations,
+with some intermediate cells in S phase.
+
+CellProfiler pipelines were used to perform background correction,
+identify nuclei using DAPI, and measure intensity of DAPI and other
+channels in a set of 100 images collected on 11-5-2018.
+
+\begin{verbatim}
+## Parsed with column specification:
+## cols(
+##   .default = col_double(),
+##   ImageNumber = col_integer(),
+##   ObjectNumber = col_integer(),
+##   Metadata_FileLocation = col_character(),
+##   Metadata_Frame = col_integer(),
+##   Metadata_Series = col_integer(),
+##   Metadata_XY = col_integer(),
+##   Metadata_basename = col_character(),
+##   AreaShape_Area = col_integer()
+## )
+\end{verbatim}
+
+\begin{verbatim}
+## See spec(...) for full column specifications.
+\end{verbatim}
+
+\begin{verbatim}
+## 922 cells detected.
+\end{verbatim}
+
+Plotting a histogram of the DNA content over all ----- nuclei detected:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# use echo=FALSE to prevent printing code}
+\KeywordTok{hist}\NormalTok{(dnaTotalInt, }\DataTypeTok{breaks =}\NormalTok{ (}\DecValTok{0}\OperatorTok{:}\DecValTok{50}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{2018-11-15_qbic_test2a_files/figure-latex/DNA content-1.pdf}
+
+This shows that there is a roughly bimodal distribution with peaks
+\textasciitilde{} 12 and \textasciitilde{} 24, with tails on either
+side.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{low_vals <-}\StringTok{ }\KeywordTok{mean}\NormalTok{(dnaTotalInt }\OperatorTok{<}\StringTok{ }\DecValTok{1}\NormalTok{) }\OperatorTok{*}\StringTok{ }\DecValTok{100}
+\NormalTok{high_vals <-}\StringTok{ }\KeywordTok{mean}\NormalTok{(dnaTotalInt }\OperatorTok{>}\StringTok{ }\DecValTok{30}\NormalTok{) }\OperatorTok{*}\StringTok{ }\DecValTok{100}
+\NormalTok{central_vals <-}\StringTok{ }\KeywordTok{mean}\NormalTok{(dnaTotalInt }\OperatorTok{>}\StringTok{ }\DecValTok{1} \OperatorTok{&}\StringTok{ }\NormalTok{dnaTotalInt }\OperatorTok{<}\StringTok{ }\DecValTok{30}\NormalTok{) }\OperatorTok{*}\StringTok{ }\DecValTok{100}
+
+\KeywordTok{cat}\NormalTok{(central_vals, }\StringTok{"% of the values are between 1 and 30; "}\NormalTok{,low_vals,}\StringTok{"% <1; and"}\NormalTok{,high_vals,}\StringTok{"% >30"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 97.2885 % of the values are between 1 and 30;  0 % <1; and 2.711497 % >30
+\end{verbatim}
+
+Ultimately we would like to see an inverted horseshoe-type plot of EdU
+(showing S phase cells) vs.~DNA content where the cells incorporating
+EdU are primarily those between the 2 peaks.
+
+Generating the other dimension of the plot from the corrected mean
+intensity from Channel 2, EdU:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{#EdUMeanInt <- qbic_C1DNANuclei$Intensity_MeanIntensity_Channel2EdU}
+\NormalTok{EdUMeanInt <-}\StringTok{ }\NormalTok{qbic_C1DNANuclei}\OperatorTok{$}\NormalTok{Intensity_MeanIntensity_Channel2EdUCorr}
+\KeywordTok{hist}\NormalTok{(EdUMeanInt)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{2018-11-15_qbic_test2a_files/figure-latex/reading EdU data-1.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{plot}\NormalTok{(}\DataTypeTok{x =}\NormalTok{ dnaTotalInt, }\DataTypeTok{y =}\NormalTok{ EdUMeanInt) }\CommentTok{# basic scatter plot}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{2018-11-15_qbic_test2a_files/figure-latex/reading EdU data-2.pdf}
+
+\subsubsection{Are nuclei detected
+properly?}\label{are-nuclei-detected-properly}
+
+Several images were selected at random, and the image of detected
+objects was compared with the original data.
+
+False positives (non-cells counted as objects) and false negatives
+(cells not included in the object map) were scored manually.
+
+\begin{figure}
+\centering
+\includegraphics{/Users/confocal/Desktop/output/test2-3/detection_Montage.png}
+\caption{Detection of nuclei in XY point 30, 11/5/18. Left, original
+DAPI channel. Right, detected objects, each in a different color. Red
+circle shows a false positive.}
+\end{figure}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{qbic_check <-}\StringTok{ }\KeywordTok{read_csv}\NormalTok{(}\StringTok{"~/github_theresaswayne/cellprofiler/2018-11-15 qbic test 2a.csv"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Parsed with column specification:
+## cols(
+##   Image = col_integer(),
+##   `Cells detected by CP` = col_integer(),
+##   `False positives` = col_integer(),
+##   `False negatives` = col_integer(),
+##   Notes = col_character()
+## )
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{kable}\NormalTok{(qbic_check[,(}\DecValTok{1}\OperatorTok{:}\DecValTok{5}\NormalTok{)])}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{longtable}[]{@{}rrrrl@{}}
+\toprule
+Image & Cells detected by CP & False positives & False negatives &
+Notes\tabularnewline
+\midrule
+\endhead
+89 & 9 & 0 & 0 & NA\tabularnewline
+51 & 11 & 0 & 0 & NA\tabularnewline
+31 & 12 & 0 & 0 & NA\tabularnewline
+36 & 9 & 2 & 0 & NA\tabularnewline
+45 & 0 & 0 & 0 & NA\tabularnewline
+13 & 11 & 0 & 0 & NA\tabularnewline
+2 & 7 & 0 & 0 & CP count based on looking at obj image for this point
+and below\tabularnewline
+12 & 9 & 0 & 0 & NA\tabularnewline
+7 & 13 & 0 & 0 & NA\tabularnewline
+45 & 0 & 0 & 0 & NA\tabularnewline
+43 & 16 & 0 & 0 & 1 possible false pos (out of focus) lower
+right\tabularnewline
+31 & 12 & 0 & 0 & Edge objects inconsistent -- here a cell was detected
+that is at edge (partial nucleus) but in \#43 a cell barely on edge was
+eliminated\tabularnewline
+32 & 15 & 0 & 0 & NA\tabularnewline
+29 & 10 & 0 & 0 & NA\tabularnewline
+30 & 14 & 1 & 0 & false pos = elongated junk\tabularnewline
+39 & 9 & 0 & 0 & NA\tabularnewline
+68 & 15 & 0 & 0 & NA\tabularnewline
+85 & 8 & 0 & 0 & NA\tabularnewline
+65 & 3 & 1 & 0 & NA\tabularnewline
+86 & 8 & 0 & 0 & one cell near top edge was segmented smaller than in
+reality\tabularnewline
+\bottomrule
+\end{longtable}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{total_cells <-}\StringTok{ }\KeywordTok{sum}\NormalTok{(qbic_check}\OperatorTok{$}\StringTok{`}\DataTypeTok{Cells detected by CP}\StringTok{`}\NormalTok{)}
+\NormalTok{false_pos <-}\StringTok{ }\DecValTok{100} \OperatorTok{*}\StringTok{ }\KeywordTok{sum}\NormalTok{(qbic_check}\OperatorTok{$}\StringTok{`}\DataTypeTok{False positives}\StringTok{`}\NormalTok{)}\OperatorTok{/}\NormalTok{total_cells}
+\NormalTok{false_neg <-}\StringTok{ }\DecValTok{100} \OperatorTok{*}\StringTok{ }\KeywordTok{sum}\NormalTok{(qbic_check}\OperatorTok{$}\StringTok{`}\DataTypeTok{False negatives}\StringTok{`}\NormalTok{)}\OperatorTok{/}\NormalTok{total_cells}
+\KeywordTok{cat}\NormalTok{(}\StringTok{"Out of"}\NormalTok{,total_cells,}\StringTok{"cells detected, there were"}\NormalTok{,false_pos,}\StringTok{"% false positives and"}\NormalTok{,false_neg,}\StringTok{"% false negatives."}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+Out of 191 cells detected, there were 2.094241 \% false positives and 0
+\% false negatives.
+
+\subsection{Question: What to do with apparent
+clumps?}\label{question-what-to-do-with-apparent-clumps}
+
+Some DAPI structures appear to have multiple lobes. Are these
+multi-lobed nuclei, mitotic cells, or actually multiple cells close
+together? If needed, we can modify the object detection to split objects
+by shape.
+
+\begin{figure}
+\centering
+\includegraphics{/Users/confocal/Desktop/output/test2-3/clump_Montage.png}
+\caption{Examples of clumped nuclei from XY points 21 and 30, 11/5/18.}
+\end{figure}
+
+\subsection{Summary}\label{summary}
+
+\begin{itemize}
+\tightlist
+\item
+  Time of processing with CellProfiler is \textless{} 10 min per 100
+  images for illumination correction and the same for object detection.
+\item
+  Nuclei are detected well in this system. There are virtually no false
+  negatives.
+\item
+  Some bright debris results in false positives, about 2\%.
+\item
+  We need to decide if some objects should be split or if they are
+  actually single nuclei.
+\end{itemize}
+
+
+\end{document}
