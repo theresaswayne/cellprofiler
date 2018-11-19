@@ -20,9 +20,8 @@ The DNA content in a mixed population of actively cycling cells should form a ro
 
 CellProfiler pipelines were used to perform background correction, identify nuclei using DAPI, and measure intensity of DAPI and other channels in a set of 100 images collected on 11-5-2018.
 
-<!-- TODO: replace with the better data (test 3?) --> 
 ```{r reading DNA data, echo = FALSE}
-qbic_C1DNANuclei <- read_csv("~/Google Drive/User projects/Demis qbic/test 2/qbic_C1DNANuclei.csv")
+qbic_C1DNANuclei <- read_csv("~/Google Drive/User projects/Demis qbic/test 2-3/qbic_C1DNANuclei.csv")
 #dnaTotalInt <- qbic_C1DNANuclei$Intensity_IntegratedIntensity_Channel1DNA
 dnaTotalInt <- qbic_C1DNANuclei$Intensity_IntegratedIntensity_Channel1DNACorr
 dim(dnaTotalInt)
@@ -40,11 +39,11 @@ This shows that there is a roughly bimodal distribution with peaks ~ 12 and ~ 24
 
 
 ```{r proportion of outliers}
-low_vals <- mean(dnaTotalInt < 1)
-high_vals <- mean(dnaTotalInt > 30)
-central_vals <- mean(dnaTotalInt > 1 & dnaTotalInt < 30)
+low_vals <- mean(dnaTotalInt < 1) * 100
+high_vals <- mean(dnaTotalInt > 30) * 100
+central_vals <- mean(dnaTotalInt > 1 & dnaTotalInt < 30) * 100
 
-cat(central_vals, "of the values are between 1 and 30; ",low_vals,"<1; and",high_vals,">30")
+cat(central_vals, "% of the values are between 1 and 30; ",low_vals,"% <1; and",high_vals,"% >30")
 ```
 
 Ultimately we would like to see an inverted horseshoe-type plot of EdU (showing S phase cells) vs. DNA content where the cells incorporating EdU are primarily those between the 2 peaks.
@@ -63,12 +62,12 @@ plot(x = dnaTotalInt, y = EdUMeanInt) # basic scatter plot
 
 Several images were selected at random and the image of detected objects was compared with the original data. 
 
-<!-- TODO: Insert images here of a general example -->
+![Detection of nuclei](/Users/confocal/github_theresaswayne/cellprofiler/detection\ Montage.png)
  
 False positives (non-cells counted as objects) and false negatives (cells not included in the object map) were scored manually.
 
 ```{r reading quality control data, results = 'asis'}
-qbic_check <- read_csv("~/Documents/home-github/cellprofiler/2018-11-15 qbic test 2a.csv")
+qbic_check <- read_csv("~/github_theresaswayne/cellprofiler/2018-11-15 qbic test 2a.csv")
 kable(qbic_check[,(1:5)])
 total_cells <- sum(qbic_check$`Cells detected by CP`)
 false_pos <- 100 * sum(qbic_check$`False positives`)/total_cells
