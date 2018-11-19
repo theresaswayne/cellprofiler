@@ -93,7 +93,6 @@ EdU-positive cells were defined based on the histogram as having mean intensity 
 
 gH2AX-positive cells were defined based on the histogram as having mean intensity > 0.
 
-<!-- TODO: scatter of EdU, H2AX for filtered S phase cells-->
 
 ```{r EdU and H2AX in S-phase cells}
 S_Nuclei <- filter(qbic_C1DNANuclei, Intensity_IntegratedIntensity_Channel1DNACorr > 12 & Intensity_IntegratedIntensity_Channel1DNACorr < 24)
