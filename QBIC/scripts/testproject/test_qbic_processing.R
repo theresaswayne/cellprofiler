@@ -3,23 +3,23 @@
 # adapting to project-based structure
 
 # load packages
-library(dplyr)
-library(readr)
-library(ggplot2)
-library(here)
+#library(dplyr)
+#library(readr)
+#library(ggplot2)
+#library(here)
+
+require(dplyr)
+require(readr)
+require(ggplot2)
+require(here)
 
 # load data which you have placed in the data folder
 
-qbic_C1DNANuclei <- read_csv("~/Desktop/output/qbic_C1DNANuclei.csv")
-df <- read.delim(here("data", "raw_foofy_data.csv"))
-p <- ggplot(df, aes(x, y)) + geom_point()
-ggsave(here("figs", "foofy_scatterplot.png"))
-
-
-#dnaTotalInt <- qbic_C1DNANuclei$Intensity_IntegratedIntensity_Channel1DNA
-#EdUMeanInt <- qbic_C1DNANuclei$Intensity_MeanIntensity_Channel2EdU
+qbic_C1DNANuclei <- read_csv(here("data", "qbic_C1DNANuclei.csv"))
 dnaTotalInt <- qbic_C1DNANuclei$Intensity_IntegratedIntensity_Channel1DNACorr
 EdUMeanInt <- qbic_C1DNANuclei$Intensity_MeanIntensity_Channel2EdUCorr
+p <- ggplot(qbic_C1DNANuclei, aes(dnaTotalInt, EdUMeanInt)) + geom_point()
+ggsave(here("results", "foofy_scatterplot.png"))
 
 
 hist(dnaTotalInt, main = "Test 2")
