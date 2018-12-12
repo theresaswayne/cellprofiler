@@ -1,6 +1,5 @@
 # qbic_processing.R
 # for examining CellProfiler data from nuclear analyses
-# adapting to project-based structure
 
 # load packages if not already loaded
 require(dplyr)
@@ -9,7 +8,7 @@ require(ggplot2)
 require(here)
 
 # load data that you have placed in the data folder
-qbic_C1DNANuclei <- read_csv(here("data", "2018-12-06_qbic_C1DNANuclei.csv"))
+qbic_C1DNANuclei <- read_csv(here("data", "2018-11-05 data 2018-12-06 tiff illum corr/2018-12-06_qbic_C1DNANuclei.csv"))
 
 #dnaTotalInt <- qbic_C1DNANuclei$Intensity_IntegratedIntensity_Channel1DNA
 #EdUMeanInt <- qbic_C1DNANuclei$Intensity_MeanIntensity_Channel2EdU
