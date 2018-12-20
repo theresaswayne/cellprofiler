@@ -165,6 +165,18 @@ print(WT_EdU_gH2AX_plot)
 # TODO: make discrete shades 
 # try: https://stackoverflow.com/questions/17713456/easiest-way-to-discretize-continuous-scales-for-ggplot2-color-scales
 
+# MODEL ------
+mybreaks <- c(0,3,6,Inf) # bins
+mylabels <- c("≤ 3", "3 - 6", "> 6") # null added at end to avoid warning about labels and breaks being same length
+
+p3 <- ggplot(iris) +
+  geom_point(aes(x=Sepal.Width, y=Sepal.Length,
+                 colour=cut(Petal.Length, mybreaks))) +
+  theme_classic() +
+  scale_colour_brewer("Petal Length", type="seq",palette = "YlGn", labels = mylabels, guide = "legend") +
+  labs(title = "Fig. 11: Scatterplot with color change at specified breaks in data")
+
+p3
 
 
 # what is the actual distribution of gH2AX?
