@@ -17,18 +17,18 @@ AtrNull <- all_objects %>% filter(Metadata_basename == "Atr-")
 # Object shape and size --------
 
 # Area of detected objects
-# TODO: convert to ggplot
-hist(all_objects$AreaShape_Area) #TODO: try ggplot
-hist(AtrWT$AreaShape_Area)
-hist(AtrKD$AreaShape_Area)
-hist(AtrNull$AreaShape_Area)
+# TODO: convert to ggplot, make panels (same scale)
+# hist(all_objects$AreaShape_Area) 
+# hist(AtrWT$AreaShape_Area)
+# hist(AtrKD$AreaShape_Area)
+# hist(AtrNull$AreaShape_Area)
 
 # Form factor of detected objects
-# TODO: convert to ggplot
-hist(all_objects$AreaShape_FormFactor) #TODO: try ggplot
-hist(AtrWT$AreaShape_FormFactor)
-hist(AtrKD$AreaShape_FormFactor)
-hist(AtrNull$AreaShape_FormFactor)
+# TODO: convert to ggplot, make panels, same scale
+# hist(all_objects$AreaShape_FormFactor) #TODO: try ggplot
+# hist(AtrWT$AreaShape_FormFactor)
+# hist(AtrKD$AreaShape_FormFactor)
+# hist(AtrNull$AreaShape_FormFactor)
 
 #cat(mean(all_objects$AreaShape_FormFactor < 0.5)) # how many objects are not roundish?
 
@@ -39,7 +39,7 @@ area_ff_plot <- ggplot(data = all_objects, aes(x=AreaShape_Area, y=AreaShape_For
   theme_classic() + # no fill
   labs(x = "Area, pixels", y = "Form factor", title = "Object shape and size for 25,000 cells") +
   guides(fill=FALSE, color=FALSE) # hide legend
-print(area_ff_plot)
+#print(area_ff_plot)
 
 # all genotypes together
 
@@ -50,7 +50,7 @@ area_ff_plot_color <- ggplot(data = all_objects, aes(x=AreaShape_Area, y=AreaSha
   scale_colour_discrete(name = "Genotype",
                         labels = c("Atr knockdown", expression(Atr^{"+"}), expression(Atr^{"-"}))) + # rename legend elements
   guides(colour = guide_legend(override.aes = list(size=3, alpha = 1, shape = "square"))) # symbols are solid squares in the legend
-print(area_ff_plot_color)
+# print(area_ff_plot_color)
 
 # each genotype separately
 
@@ -60,7 +60,7 @@ area_ff_WT <- ggplot(data = AtrWT, aes(x=AreaShape_Area, y=AreaShape_FormFactor)
   labs(x = "Area, pixels", y = "Form factor", 
        title = expression(paste(Form~factor~vs.~Area~","~Atr^{textstyle("+")}))) +
   guides(fill=FALSE, color=FALSE) # hide legend
-print(area_ff_WT)
+#print(area_ff_WT)
 
 area_ff_KD <- ggplot(data = AtrKD, aes(x=AreaShape_Area, y=AreaShape_FormFactor)) +
   geom_point(aes(colour = "red"), size = 1, alpha = 0.1) + 
@@ -68,7 +68,7 @@ area_ff_KD <- ggplot(data = AtrKD, aes(x=AreaShape_Area, y=AreaShape_FormFactor)
   labs(x = "Area, pixels", y = "Form factor", 
        title = expression(paste(Form~factor~vs.~Area~","~Atr~knockdown))) +
   guides(fill=FALSE, color=FALSE) # hide legend
-print(area_ff_KD)
+#print(area_ff_KD)
 
 area_ff_Null <- ggplot(data = AtrNull, aes(x=AreaShape_Area, y=AreaShape_FormFactor)) +
   geom_point(aes(colour = "red"), size = 1, alpha = 0.1) + 
@@ -76,7 +76,7 @@ area_ff_Null <- ggplot(data = AtrNull, aes(x=AreaShape_Area, y=AreaShape_FormFac
   labs(x = "Area, pixels", y = "Form factor", 
        title = expression(paste(Form~factor~vs.~Area~","~Atr^{textstyle("-")}))) +
   guides(fill=FALSE, color=FALSE) # hide legend
-print(area_ff_Null)
+#print(area_ff_Null)
 
 # relationship between intensity and form factor?
 
@@ -87,14 +87,14 @@ ff_DNA_plot_color <- ggplot(data = all_objects, aes(x=AreaShape_FormFactor, y=In
   scale_colour_discrete(name = "Genotype",
                         labels = c("Atr knockdown", expression(Atr^{"+"}), expression(Atr^{"-"}))) + # rename legend elements
   guides(colour = guide_legend(override.aes = list(size=3, alpha = 1, shape = "square"))) # symbols are solid squares in the legend
-print(ff_DNA_plot_color)
+#print(ff_DNA_plot_color)
 
 # DNA content --------------
-# TODO: convert to ggplot
-hist(all_objects$Intensity_IntegratedIntensity_Channel1DNACorr, breaks = (0:100)) #TODO: try ggplot
-hist(AtrWT$Intensity_IntegratedIntensity_Channel1DNACorr, breaks= (0:100), main = "WT DNA Content")
-hist(AtrKD$Intensity_IntegratedIntensity_Channel1DNACorr, breaks= (0:100), main = "Atr KD DNA Content")
-hist(AtrNull$Intensity_IntegratedIntensity_Channel1DNACorr, breaks= (0:100), main = "Atr- DNA Content")
+# TODO: convert to ggplot, panels, same scale
+# hist(all_objects$Intensity_IntegratedIntensity_Channel1DNACorr, breaks = (0:100)) #TODO: try ggplot
+# hist(AtrWT$Intensity_IntegratedIntensity_Channel1DNACorr, breaks= (0:100), main = "WT DNA Content")
+# hist(AtrKD$Intensity_IntegratedIntensity_Channel1DNACorr, breaks= (0:100), main = "Atr KD DNA Content")
+# hist(AtrNull$Intensity_IntegratedIntensity_Channel1DNACorr, breaks= (0:100), main = "Atr- DNA Content")
 
 # DNA/EdU -----------
 
@@ -163,21 +163,34 @@ WT_EdU_gH2AX_plot <- ggplot(data = AtrWT, aes(x=Intensity_IntegratedIntensity_Ch
 print(WT_EdU_gH2AX_plot)
 
 # TODO: make discrete shades 
-# try: https://stackoverflow.com/questions/17713456/easiest-way-to-discretize-continuous-scales-for-ggplot2-color-scales
 
-# MODEL ------
-mybreaks <- c(0,3,6,Inf) # bins
-mylabels <- c("≤ 3", "3 - 6", "> 6") # null added at end to avoid warning about labels and breaks being same length
+# mybreaks <- c(0,3,6,Inf) # bins
+# mylabels <- c("≤ 3", "3 - 6", "> 6") 
+mybreaks <- c(0,0.001,0.002,0.005,Inf) # bins
+mylabels <- c("≤ 0.001", "0.001 - 0.002", "0.002 - 0.005", " > 0.005")
 
-p3 <- ggplot(iris) +
-  geom_point(aes(x=Sepal.Width, y=Sepal.Length,
-                 colour=cut(Petal.Length, mybreaks))) +
-  theme_classic() +
-  scale_colour_brewer("Petal Length", type="seq",palette = "YlGn", labels = mylabels, guide = "legend") +
-  labs(title = "Fig. 11: Scatterplot with color change at specified breaks in data")
+WT_EdU_gH2AX_binned_plot <- ggplot(data = AtrWT, aes(x=Intensity_IntegratedIntensity_Channel1DNACorr,
+                                                     y=Intensity_MeanIntensity_Channel2EdUCorr)) +
+  scale_y_log10() + # Plot y on log10 scale  
+  geom_point(aes(colour = cut(Intensity_MeanIntensity_Channel3gH2AXCorr, mybreaks)),
+             size = 0.5) + # color based on gH2AX bins
+            theme_classic() + # no fill
+            scale_colour_brewer("gammaH2AX", type="seq",palette = "YlGn", labels = mylabels, guide = "legend") +
+              labs(x = "DNA Content, AU", y = "EdU intensity, AU", 
+                   title = expression(paste(EdU~vs.~DNA~Content~","~Atr^{textstyle("+")})))
+              
+              # TODO: get gamma to print, change palette
+print(WT_EdU_gH2AX_binned_plot)
 
-p3
-
+# 
+# p3 <- ggplot(iris) +
+#   geom_point(aes(x=Sepal.Width, y=Sepal.Length,
+#                  colour=cut(Petal.Length, mybreaks))) +
+#   theme_classic() +
+#   scale_colour_brewer("Petal Length", type="seq",palette = "YlGn", labels = mylabels, guide = "legend") +
+#   labs(title = "Fig. 10: Scatterplot with color change at specified breaks in data")
+# 
+# print(p3)
 
 # what is the actual distribution of gH2AX?
 
