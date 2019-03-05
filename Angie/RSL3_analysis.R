@@ -1,7 +1,9 @@
 
 # RSL3_analysis.R
+# For Angie Huizhong Feng's data.
+# Reads saved CellProfiler data and calculates mean values per cell, grouped by treatment.
 
-# load your dataset...
+
 
 require(tidyverse)
 require(tcltk)
