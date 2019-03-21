@@ -162,7 +162,7 @@ WT_EdU_gH2AX_plot <- ggplot(data = AtrWT, aes(x=Intensity_IntegratedIntensity_Ch
   scale_colour_gradientn(colours=rainbow(6), name="gH2AX Mean Intensity")
 print(WT_EdU_gH2AX_plot)
 
-# what is the actual distribution of gH2AX intensity?
+# what is the actual distribution of gH2AX?
 
 gH2AX_hist <- ggplot(data = AtrWT, aes(Intensity_MeanIntensity_Channel3gH2AXCorr))  +
   geom_histogram(bins = 100) +
@@ -170,7 +170,6 @@ gH2AX_hist <- ggplot(data = AtrWT, aes(Intensity_MeanIntensity_Channel3gH2AXCorr
   ggtitle("WT gH2AX Mean Intensity")
 print(gH2AX_hist)
 
-# cumulative distribution function
 gH2AX_ecdf <- ggplot(data = AtrWT, aes(Intensity_MeanIntensity_Channel3gH2AXCorr)) +
   stat_ecdf()
 print(gH2AX_ecdf)
@@ -179,32 +178,31 @@ print(gH2AX_ecdf)
 # mybreaks <- c(0,3,6,Inf) # bins
 # mylabels <- c("≤ 3", "3 - 6", "> 6") 
 mybreaks <- c(0,0.0005,0.00125,0.002,Inf) # bins
-mylabels <- c("≤ 0.0005", "0.0005 - 0.00125", "0.00125 - 0.002", " > 0.002") # guessed
+mylabels <- c("≤ 0.0005", "0.0005 - 0.00125", "0.00125 - 0.002", " > 0.002")
 mypalette <- "Oranges"
-xlimits <- c(0,80) # determined empirically TODO: use max(range())
-ylimits <- c(0.0003,0.055) # determined empirically
+xlimits <- c(0,80)
+ylimits <- c(3e-4, 3e-2)
 
 WT_EdU_gH2AX_binned_plot <- ggplot(data = AtrWT, aes(x=Intensity_IntegratedIntensity_Channel1DNACorr,
                                                      y=Intensity_MeanIntensity_Channel2EdUCorr)) +
-  xlim(xlimits) + 
-  scale_y_log10(limits = ylimits) + # Plot y on log10 scale  
+  scale_y_log10() + # Plot y on log10 scale  
   geom_point(aes(colour = cut(Intensity_MeanIntensity_Channel3gH2AXCorr, mybreaks)),
             alpha = 0.4, size = 0.5) + # color based on gH2AX bins
-            theme_grey() + # grey fill
-            scale_colour_brewer(expression(paste(~gamma~H2AX~intensity)), type="seq",palette = mypalette, labels = mylabels, guide = "legend") +
+            theme_grey() + # no fill
+            scale_colour_brewer(expression(paste(~gamma~H2AX)), type="seq",palette = mypalette, labels = mylabels, guide = "legend") +
             guides(colour = guide_legend(override.aes = list(size=4, alpha = 1, shape = "square"))) + # symbols are solid squares in the legend
             labs(x = "DNA Content, AU", y = "EdU intensity, AU", 
-                   title = expression(paste(EdU~vs.~DNA~Content~","~Atr^{textstyle("+")})))
+                   title = expression(paste(EdU~vs.~DNA~Content~","~Atr^{textstyle("+")}))) +
+            xlim(xlimits) + ylim(ylimits)
 print(WT_EdU_gH2AX_binned_plot)
 
 KD_EdU_gH2AX_binned_plot <- ggplot(data = AtrKD, aes(x=Intensity_IntegratedIntensity_Channel1DNACorr,
                                                      y=Intensity_MeanIntensity_Channel2EdUCorr)) +
-  xlim(xlimits) + 
-  scale_y_log10(limits = ylimits) + # Plot y on log10 scale  
+  scale_y_log10() + # Plot y on log10 scale  
   geom_point(aes(colour = cut(Intensity_MeanIntensity_Channel3gH2AXCorr, mybreaks)),
              alpha = 0.4, size = 0.5) + # color based on gH2AX bins
-  theme_grey() + # grey fill
-  scale_colour_brewer(expression(paste(~gamma~H2AX~intensity)), type="seq",palette = mypalette, labels = mylabels, guide = "legend") +
+  theme_grey() + # no fill
+  scale_colour_brewer(expression(paste(~gamma~H2AX)), type="seq",palette = mypalette, labels = mylabels, guide = "legend") +
   guides(colour = guide_legend(override.aes = list(size=4, alpha = 1, shape = "square"))) + # symbols are solid squares in the legend
   labs(x = "DNA Content, AU", y = "EdU intensity, AU", 
        title = expression(paste(EdU~vs.~DNA~Content~","~Atr~knockdown)))
@@ -213,12 +211,11 @@ print(KD_EdU_gH2AX_binned_plot)
 
 Null_EdU_gH2AX_binned_plot <- ggplot(data = AtrNull, aes(x=Intensity_IntegratedIntensity_Channel1DNACorr,
                                                      y=Intensity_MeanIntensity_Channel2EdUCorr)) +
-  xlim(xlimits) + 
-  scale_y_log10(limits = ylimits) + # Plot y on log10 scale  
+  scale_y_log10() + # Plot y on log10 scale  
   geom_point(aes(colour = cut(Intensity_MeanIntensity_Channel3gH2AXCorr, mybreaks)),
              alpha = 0.4, size = 0.5) + # color based on gH2AX bins
-  theme_grey() + # grey fill
-  scale_colour_brewer(expression(paste(~gamma~H2AX~intensity)), type="seq",palette = mypalette, labels = mylabels, guide = "legend") +
+  theme_grey() + # no fill
+  scale_colour_brewer(expression(paste(~gamma~H2AX)), type="seq",palette = mypalette, labels = mylabels, guide = "legend") +
   guides(colour = guide_legend(override.aes = list(size=4, alpha = 1, shape = "square"))) + # symbols are solid squares in the legend
   labs(x = "DNA Content, AU", y = "EdU intensity, AU", 
        title = expression(paste(EdU~vs.~DNA~Content~","~Atr^{textstyle("-")})))
@@ -227,5 +224,5 @@ print(Null_EdU_gH2AX_binned_plot)
 
 # TODO: filter by form factor and/or size -------
 
-
+# TODO: set limits
 
