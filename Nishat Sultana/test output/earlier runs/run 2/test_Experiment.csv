@@ -1,0 +1,365 @@
+Key,Value
+CellProfiler_Version,4.1.3
+ChannelType_DAPI,Grayscale
+ChannelType_Red,Grayscale
+Default_InputFolder,/Users/theresaswayne/Desktop/2021-03 Nishat CP/input
+Default_OutputFolder,/Users/theresaswayne/Desktop/2021-03 Nishat CP/output
+ImageSet_Zip_Dictionary,b'PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz48T01FIHhtbG5zPSJodHRwOi8vd3d3Lm9wZW5taWNyb3Njb3B5Lm9yZy9TY2hlbWFzL09NRS8yMDE2LTA2Ij48SW1hZ2UgSUQ9IkRBUEkiPjxQaXhlbHMgRGltZW5zaW9uT3JkZXI9IlhZQ1pUIiBJRD0iUGl4ZWxzOkRBUEkiIFNpemVUPSIxIiBTaXplWD0iMSIgU2l6ZVk9IjEiPjxUaWZmRGF0YSBGaXJzdEM9IjAiIEZpcnN0VD0iMCIgRmlyc3RaPSIwIiBJRkQ9IjAiIFBsYW5lQ291bnQ9IjEiPjxVVUlEIEZpbGVOYW1lPSJmaWxlOi9Vc2Vycy90aGVyZXNhc3dheW5lL0Rlc2t0b3AvMjAyMS0wMyUyME5pc2hhdCUyMENQL2lucHV0LzFfQ0gxX0RBUEkudGlmIi8+PC9UaWZmRGF0YT48UGxhbmUgVGhlQz0iMCIgVGhlVD0iMCIgVGhlWj0iMCIvPjwvUGl4ZWxzPjwvSW1hZ2U+PEltYWdlIElEPSJSZWQiPjxQaXhlbHMgRGltZW5zaW9uT3JkZXI9IlhZQ1pUIiBJRD0iUGl4ZWxzOlJlZCIgU2l6ZVQ9IjEiIFNpemVYPSIxIiBTaXplWT0iMSI+PFRpZmZEYXRhIEZpcnN0Qz0iMCIgRmlyc3RUPSIwIiBGaXJzdFo9IjAiIElGRD0iMCIgUGxhbmVDb3VudD0iMSI+PFVVSUQgRmlsZU5hbWU9ImZpbGU6L1VzZXJzL3RoZXJlc2Fzd2F5bmUvRGVza3RvcC8yMDIxLTAzJTIwTmlzaGF0JTIwQ1AvaW5wdXQvMV9PeG1sc2lvbi4wImVuY29pbkY/T01FbnM6L3d3Lm9peWdTY21hcy9PTUUvMjAtNiI+PEltYWdlIElEPSJEQVBJIj48UGl4ZWxzIERpbWVuc2lvbk9yZGVyPSJYWUNaVCIgSUQ9IlBpeGVsczpEQVBJIiBTaXplVD0iMSIgU2l6ZVg9IjEiIFNpemVZPSIxIj48VGlmZkRhdGEgRmlyc3RDPSIwIiBGaXJzdFQ9IjAiIEZpcnN0Wj0iMCIgSUZEPSIwIiBQbGFuZUNvdW50PSIxIj48VVVJRCBGaWxlTmFtZT0iZmlsZTovVXNlcnMvdGhlcmVzYXN3YXluZS9EZXNrdG9wLzIwMjEtMDMlMjBOaXNoYXQlMjBDUC9pbnB1dC8yX0NIaWY+PFBsYW5lIFRoZUM9IjAiIFRoZVQ9IjAiWj0iMCIvPjwveD48L21hSW1hZ2UgSVJlZD48UGl4ZWxzIGVyVCIgSVJlZCIgU2l6ZT0iMSIgU2l6ZVg9IjEiWT0iMSI+PFRpZmZEYXRhIEZpcnN0Qz0iMCIgRmlyc3RUPSIwIiBaPSIwIkQ9InU9IjFVSUQgRmlObWVpbGU6ZXJzZXNvcC8yLTAzMmhhdCUyMFA='
+Metadata_Tags,"[""ImageNumber""]"
+Pipeline_Pipeline,"CellProfiler Pipeline: http://www.cellprofiler.org
+Version:5
+DateRevision:413
+GitHash:
+ModuleCount:20
+HasImagePlaneDetails:False
+
+Images:[module_num:1|svn_version:'Unknown'|variable_revision_number:2|show_window:False|notes:['Note: Images should be renamed with NameChanger (Mac) or similar) so that:', 't— each DAPI image name ends with  _DAPI.tif', 't— each red image name ends with  _Red.tif', 't— each green image name ends with _Green.tif', ' ']|batch_state:array([], dtype=uint8)|enabled:True|wants_pause:False]
+    :
+    Filter images?:Images only
+    Select the rule criteria:and (extension does istif) (directory doesnot containregexp ""[\\\\/]\\."")
+
+Metadata:[module_num:2|svn_version:'Unknown'|variable_revision_number:6|show_window:False|notes:['If images have been correctly renamed, the channel name will be identified here.']|batch_state:array([], dtype=uint8)|enabled:True|wants_pause:False]
+    Extract metadata?:Yes
+    Metadata data type:Text
+    Metadata types:{}
+    Extraction method count:1
+    Metadata extraction method:Extract from file/folder names
+    Metadata source:File name
+    Regular expression to extract from file name:(?P<Channel>[A-Za-z]*)\.tif
+    Regular expression to extract from folder name:(?P<Date>[0-9]{4}_[0-9]{2}_[0-9]{2})$
+    Extract metadata from:All images
+    Select the filtering criteria:and (file does contain """")
+    Metadata file location:Elsewhere...|
+    Match file and image metadata:[]
+    Use case insensitive matching?:No
+    Metadata file name:None
+    Does cached metadata exist?:No
+
+NamesAndTypes:[module_num:3|svn_version:'Unknown'|variable_revision_number:8|show_window:False|notes:['Names the images according to the channel']|batch_state:array([], dtype=uint8)|enabled:True|wants_pause:False]
+    Assign a name to:Images matching rules
+    Select the image type:Grayscale image
+    Name to assign these images:DNA
+    Match metadata:[]
+    Image set matching method:Order
+    Set intensity range from:Image metadata
+    Assignments count:2
+    Single images count:0
+    Maximum intensity:255.0
+    Process as 3D?:No
+    Relative pixel spacing in X:1.0
+    Relative pixel spacing in Y:1.0
+    Relative pixel spacing in Z:1.0
+    Select the rule criteria:and (metadata does Channel ""DAPI"")
+    Name to assign these images:DAPI
+    Name to assign these objects:Cell
+    Select the image type:Grayscale image
+    Set intensity range from:Image metadata
+    Maximum intensity:255.0
+    Select the rule criteria:and (metadata does Channel ""Red"")
+    Name to assign these images:Red
+    Name to assign these objects:Nucleus
+    Select the image type:Grayscale image
+    Set intensity range from:Image metadata
+    Maximum intensity:255.0
+
+Groups:[module_num:4|svn_version:'Unknown'|variable_revision_number:2|show_window:False|notes:['The Groups module optionally allows you to split your list of images into image subsets (groups) which will be processed independently of each other. Examples of groupings include screening batches, microtiter plates, time-lapse movies, etc.']|batch_state:array([], dtype=uint8)|enabled:True|wants_pause:False]
+    Do you want to group your images?:No
+    grouping metadata count:1
+    Metadata category:None
+
+IdentifyPrimaryObjects:[module_num:5|svn_version:'Unknown'|variable_revision_number:14|show_window:True|notes:['Identify nuclei. ', 'For 10x, diameter settings are 6-25, threshold smoothing scale 1.1, size of smoothing filter 2 5-15', 'for 20x, diam. 10-30 , thresh. smoothing 1.1,   size of smoothing filter 3']|batch_state:array([], dtype=uint8)|enabled:True|wants_pause:False]
+    Select the input image:DAPI
+    Name the primary objects to be identified:Nuclei
+    Typical diameter of objects, in pixel units (Min,Max):4,15
+    Discard objects outside the diameter range?:Yes
+    Discard objects touching the border of the image?:Yes
+    Method to distinguish clumped objects:Intensity
+    Method to draw dividing lines between clumped objects:Intensity
+    Size of smoothing filter:2
+    Suppress local maxima that are closer than this minimum allowed distance:7.0
+    Speed up by using lower-resolution image to find local maxima?:No
+    Fill holes in identified objects?:After both thresholding and declumping
+    Automatically calculate size of smoothing filter for declumping?:Yes
+    Automatically calculate minimum allowed distance between local maxima?:Yes
+    Handling of objects if excessive number of objects identified:Continue
+    Maximum number of objects:500
+    Display accepted local maxima?:No
+    Select maxima color:Blue
+    Use advanced settings?:Yes
+    Threshold setting version:12
+    Threshold strategy:Global
+    Thresholding method:Minimum Cross-Entropy
+    Threshold smoothing scale:0.5
+    Threshold correction factor:1.0
+    Lower and upper bounds on threshold:0.0,1.0
+    Manual threshold:0.0
+    Select the measurement to threshold with:None
+    Two-class or three-class thresholding?:Two classes
+    Log transform before thresholding?:No
+    Assign pixels in the middle intensity class to the foreground or the background?:Foreground
+    Size of adaptive window:50
+    Lower outlier fraction:0.05
+    Upper outlier fraction:0.05
+    Averaging method:Mean
+    Variance method:Standard deviation
+    # of deviations:2.0
+    Thresholding method:Otsu
+
+IdentifyPrimaryObjects:[module_num:6|svn_version:'Unknown'|variable_revision_number:14|show_window:True|notes:['Identify red cells. Diameter 3-20, no smoothing']|batch_state:array([], dtype=uint8)|enabled:True|wants_pause:False]
+    Select the input image:Red
+    Name the primary objects to be identified:RedCells
+    Typical diameter of objects, in pixel units (Min,Max):3,20
+    Discard objects outside the diameter range?:No
+    Discard objects touching the border of the image?:Yes
+    Method to distinguish clumped objects:Intensity
+    Method to draw dividing lines between clumped objects:Shape
+    Size of smoothing filter:10
+    Suppress local maxima that are closer than this minimum allowed distance:7.0
+    Speed up by using lower-resolution image to find local maxima?:Yes
+    Fill holes in identified objects?:After both thresholding and declumping
+    Automatically calculate size of smoothing filter for declumping?:Yes
+    Automatically calculate minimum allowed distance between local maxima?:Yes
+    Handling of objects if excessive number of objects identified:Continue
+    Maximum number of objects:500
+    Display accepted local maxima?:No
+    Select maxima color:Blue
+    Use advanced settings?:Yes
+    Threshold setting version:12
+    Threshold strategy:Global
+    Thresholding method:Otsu
+    Threshold smoothing scale:0
+    Threshold correction factor:0.8
+    Lower and upper bounds on threshold:0.05,1.0
+    Manual threshold:0.0
+    Select the measurement to threshold with:None
+    Two-class or three-class thresholding?:Two classes
+    Log transform before thresholding?:No
+    Assign pixels in the middle intensity class to the foreground or the background?:Foreground
+    Size of adaptive window:50
+    Lower outlier fraction:0.05
+    Upper outlier fraction:0.05
+    Averaging method:Mean
+    Variance method:Standard deviation
+    # of deviations:2.0
+    Thresholding method:Otsu
+
+MeasureObjectIntensity:[module_num:7|svn_version:'Unknown'|variable_revision_number:4|show_window:True|notes:['Measure intensity of red channel in Red Cells']|batch_state:array([], dtype=uint8)|enabled:True|wants_pause:False]
+    Select images to measure:Red
+    Select objects to measure:RedCells
+
+ExportToSpreadsheet:[module_num:8|svn_version:'Unknown'|variable_revision_number:13|show_window:False|notes:['If desired, add the date in the filename prefix ']|batch_state:array([], dtype=uint8)|enabled:True|wants_pause:False]
+    Select the column delimiter:Comma ("","")
+    Add image metadata columns to your object data file?:Yes
+    Add image file and folder names to your object data file?:No
+    Select the measurements to export:Yes
+    Calculate the per-image mean values for object measurements?:No
+    Calculate the per-image median values for object measurements?:No
+    Calculate the per-image standard deviation values for object measurements?:No
+    Output file location:Default Output Folder|Desktop/Yunkyoung Lee images/Total vs red cells/10x vs 20x/20x results pipeline 2
+    Create a GenePattern GCT file?:No
+    Select source of sample row name:Metadata
+    Select the image to use as the identifier:None
+    Select the metadata to use as the identifier:None
+    Export all measurement types?:Yes
+    Press button to select measurements:Image|Metadata_Channel,Image|Count_RedCells,Image|Count_Nuclei,Image|FileName_DAPI,Image|FileName_Red,RedCells|Location_Center_Y,RedCells|Location_Center_X,RedCells|Intensity_IntegratedIntensity_Red,RedCells|Intensity_MeanIntensity_Red,RedCells|Intensity_MinIntensity_Red,RedCells|Intensity_MaxIntensity_Red,RedCells|Number_Object_Number,Nuclei|Location_Center_Y,Nuclei|Location_Center_X,Nuclei|Number_Object_Number
+    Representation of Nan/Inf:NaN
+    Add a prefix to file names?:Yes
+    Filename prefix:test_
+    Overwrite existing files without warning?:No
+    Data to export:Do not use
+    Combine these object measurements with those of the previous object?:No
+    File name:DATA.csv
+    Use the object name for the file name?:Yes
+
+RescaleIntensity:[module_num:9|svn_version:'Unknown'|variable_revision_number:3|show_window:False|notes:['Enhance contrast of blue image for export']|batch_state:array([], dtype=uint8)|enabled:True|wants_pause:False]
+    Select the input image:DAPI
+    Name the output image:DAPI_RescaleIntensity
+    Rescaling method:Stretch each image to use the full intensity range
+    Method to calculate the minimum intensity:Custom
+    Method to calculate the maximum intensity:Custom
+    Lower intensity limit for the input image:0.0
+    Upper intensity limit for the input image:1.0
+    Intensity range for the input image:0.0,1.0
+    Intensity range for the output image:0.0,1.0
+    Select image to match in maximum intensity:None
+    Divisor value:1.0
+    Divisor measurement:None
+
+RescaleIntensity:[module_num:10|svn_version:'Unknown'|variable_revision_number:3|show_window:False|notes:['Enhance contrast of red channel for export']|batch_state:array([], dtype=uint8)|enabled:True|wants_pause:False]
+    Select the input image:Red
+    Name the output image:Red_RescaleIntensity
+    Rescaling method:Stretch each image to use the full intensity range
+    Method to calculate the minimum intensity:Minimum for each image
+    Method to calculate the maximum intensity:Custom
+    Lower intensity limit for the input image:0.0
+    Upper intensity limit for the input image:0.03
+    Intensity range for the input image:0.0,1.0
+    Intensity range for the output image:0.0,1.0
+    Select image to match in maximum intensity:None
+    Divisor value:1.0
+    Divisor measurement:None
+
+GrayToColor:[module_num:11|svn_version:'Unknown'|variable_revision_number:4|show_window:False|notes:['colorize and merge the contrast-enhanced images']|batch_state:array([], dtype=uint8)|enabled:True|wants_pause:False]
+    Select a color scheme:RGB
+    Rescale intensity:No
+    Select the image to be colored red:Red_RescaleIntensity
+    Select the image to be colored green:Leave this black
+    Select the image to be colored blue:DAPI_RescaleIntensity
+    Name the output image:Merge_RescaleIntensity
+    Relative weight for the red image:1
+    Relative weight for the green image:1.0
+    Relative weight for the blue image:1.0
+    Select the image to be colored cyan:Leave this black
+    Select the image to be colored magenta:Leave this black
+    Select the image to be colored yellow:Leave this black
+    Select the image that determines brightness:Leave this black
+    Relative weight for the cyan image:1.0
+    Relative weight for the magenta image:1.0
+    Relative weight for the yellow image:1.0
+    Relative weight for the brightness image:1.0
+    Hidden:1
+    Image name:None
+    Color:#ff0000
+    Weight:1.0
+
+OverlayOutlines:[module_num:12|svn_version:'Unknown'|variable_revision_number:4|show_window:False|notes:['For reference, overlay outlines of red cells on contrast-enhanced, merged image']|batch_state:array([], dtype=uint8)|enabled:True|wants_pause:False]
+    Display outlines on a blank image?:No
+    Select image on which to display outlines:Merge_RescaleIntensity
+    Name the output image:MergeOutlinesRed
+    Outline display mode:Color
+    Select method to determine brightness of outlines:Max of image
+    How to outline:Inner
+    Select outline color:#FEFE0A
+    Select objects to display:RedCells
+
+SaveImages:[module_num:13|svn_version:'Unknown'|variable_revision_number:15|show_window:False|notes:['Save image showing the identified red cells. If desired, add a date stamp to the “text to append”']|batch_state:array([], dtype=uint8)|enabled:True|wants_pause:False]
+    Select the type of image to save:Image
+    Select the image to save:MergeOutlinesRed
+    Select method for constructing file names:From image filename
+    Select image name for file prefix:Red
+    Enter single file name:OrigBlue
+    Number of digits:4
+    Append a suffix to the image file name?:Yes
+    Text to append to the image name:_cells
+    Saved file format:tiff
+    Output file location:Default Output Folder|Desktop/Yunkyoung Lee images/Total vs red cells/10x vs 20x/20x results pipeline 2
+    Image bit depth:8-bit integer
+    Overwrite existing files without warning?:No
+    When to save:Every cycle
+    Record the file and path information to the saved image?:No
+    Create subfolders in the output folder?:No
+    Base image folder:Elsewhere...|
+    How to save the series:T (Time)
+
+OverlayOutlines:[module_num:14|svn_version:'Unknown'|variable_revision_number:4|show_window:False|notes:['For reference, overlay outlines of all nuclei on contrast-enhanced, merged image']|batch_state:array([], dtype=uint8)|enabled:True|wants_pause:False]
+    Display outlines on a blank image?:No
+    Select image on which to display outlines:Merge_RescaleIntensity
+    Name the output image:MergeOutlinesNuclei
+    Outline display mode:Color
+    Select method to determine brightness of outlines:Max of image
+    How to outline:Inner
+    Select outline color:#FEFE0A
+    Select objects to display:Nuclei
+
+SaveImages:[module_num:15|svn_version:'Unknown'|variable_revision_number:15|show_window:False|notes:['Save image showing the identified nuclei. If desired, add a date stamp to the “text to append”']|batch_state:array([], dtype=uint8)|enabled:True|wants_pause:False]
+    Select the type of image to save:Image
+    Select the image to save:MergeOutlinesNuclei
+    Select method for constructing file names:From image filename
+    Select image name for file prefix:Red
+    Enter single file name:OrigBlue
+    Number of digits:4
+    Append a suffix to the image file name?:Yes
+    Text to append to the image name:_nuclei
+    Saved file format:tiff
+    Output file location:Default Output Folder|Desktop/Yunkyoung Lee images/Total vs red cells/10x vs 20x/20x results pipeline 2
+    Image bit depth:8-bit integer
+    Overwrite existing files without warning?:No
+    When to save:Every cycle
+    Record the file and path information to the saved image?:No
+    Create subfolders in the output folder?:No
+    Base image folder:Elsewhere...|
+    How to save the series:T (Time)
+
+DisplayDataOnImage:[module_num:16|svn_version:'Unknown'|variable_revision_number:6|show_window:True|notes:['Construct an image showing the intensity of objects (as a heatmap, yellow = high, red = low) overlaid on a grayscale version of the Red channel']|batch_state:array([], dtype=uint8)|enabled:True|wants_pause:False]
+    Display object or image measurements?:Object
+    Select the input objects:RedCells
+    Measurement to display:Intensity_MeanIntensity_Red
+    Select the image on which to display the measurements:Red_RescaleIntensity
+    Text color:red
+    Name the output image that has the measurements displayed:DisplayImage_RedIntensity
+    Font size (points):10
+    Number of decimals:2
+    Image elements to save:Image
+    Annotation offset (in pixels):0
+    Display mode:Color
+    Color map:autumn
+    Display background image?:Yes
+    Color map scale:Use this image's measurement range
+    Color map range:0.0,1.0
+
+SaveImages:[module_num:17|svn_version:'Unknown'|variable_revision_number:15|show_window:False|notes:['Save image of heat map of measured intensities']|batch_state:array([], dtype=uint8)|enabled:True|wants_pause:False]
+    Select the type of image to save:Image
+    Select the image to save:DisplayImage_RedIntensity
+    Select method for constructing file names:From image filename
+    Select image name for file prefix:Red
+    Enter single file name:OrigBlue
+    Number of digits:4
+    Append a suffix to the image file name?:Yes
+    Text to append to the image name:_heatmap
+    Saved file format:tiff
+    Output file location:Default Output Folder|Desktop/Yunkyoung Lee images/Total vs red cells/10x vs 20x/20x results pipeline 2
+    Image bit depth:8-bit integer
+    Overwrite existing files without warning?:No
+    When to save:Every cycle
+    Record the file and path information to the saved image?:No
+    Create subfolders in the output folder?:No
+    Base image folder:Elsewhere...|
+    How to save the series:T (Time)
+
+DisplayHistogram:[module_num:18|svn_version:'Unknown'|variable_revision_number:4|show_window:True|notes:['Log-log histogram of Red cell intensities']|batch_state:array([], dtype=uint8)|enabled:True|wants_pause:False]
+    Select the object whose measurements will be displayed:RedCells
+    Select the object measurement to plot:Intensity_MeanIntensity_Red
+    Number of bins:100
+    How should the X-axis be scaled?:log
+    How should the Y-axis be scaled?:log
+    Enter a title for the plot, if desired:Red cell mean intensity
+    Specify min/max bounds for the X-axis?:No
+    Minimum/maximum values for the X-axis:0.0,1.0
+
+DisplayDataOnImage:[module_num:19|svn_version:'Unknown'|variable_revision_number:6|show_window:True|notes:['Display cell number']|batch_state:array([], dtype=uint8)|enabled:True|wants_pause:False]
+    Display object or image measurements?:Object
+    Select the input objects:RedCells
+    Measurement to display:Number_Object_Number
+    Select the image on which to display the measurements:Merge_RescaleIntensity
+    Text color:red
+    Name the output image that has the measurements displayed:DisplayImage_RedCellNumber
+    Font size (points):10
+    Number of decimals:0
+    Image elements to save:Image
+    Annotation offset (in pixels):0
+    Display mode:Text
+    Color map:Default
+    Display background image?:Yes
+    Color map scale:Use this image's measurement range
+    Color map range:0.0,1.0
+
+SaveImages:[module_num:20|svn_version:'Unknown'|variable_revision_number:15|show_window:False|notes:['Save the image with red cell numbers']|batch_state:array([], dtype=uint8)|enabled:True|wants_pause:True]
+    Select the type of image to save:Image
+    Select the image to save:DisplayImage_RedCellNumber
+    Select method for constructing file names:From image filename
+    Select image name for file prefix:DAPI
+    Enter single file name:OrigBlue
+    Number of digits:4
+    Append a suffix to the image file name?:Yes
+    Text to append to the image name:_redcells
+    Saved file format:tiff
+    Output file location:Default Output Folder|
+    Image bit depth:8-bit integer
+    Overwrite existing files without warning?:No
+    When to save:Every cycle
+    Record the file and path information to the saved image?:No
+    Create subfolders in the output folder?:No
+    Base image folder:Elsewhere...|
+    How to save the series:T (Time)
+"
+Run_Timestamp,2021-03-31T15:20:33.449686
