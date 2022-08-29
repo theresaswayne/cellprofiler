@@ -1,0 +1,3 @@
+The wells that are positive for 647 are column 2 rows E-H, column 6 row E-H, and column 7 row A-D. 
+
+The rest of the wells between columns 1-9 are negative for 647 and we should see only DAPI stain there. 
