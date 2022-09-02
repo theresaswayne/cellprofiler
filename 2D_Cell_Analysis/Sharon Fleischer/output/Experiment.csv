@@ -2,15 +2,15 @@ Key,Value
 CellProfiler_Version,4.2.4
 ChannelType_CY5,Grayscale
 ChannelType_DAPI,Grayscale
-Default_InputFolder,/Users/tcs6/Desktop/input
-Default_OutputFolder,/Users/tcs6/Desktop/output
-ImageSet_Zip_Dictionary,b'PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz48T01FIHhtbG5zPSJodHRwOi8vd3d3Lm9wZW5taWNyb3Njb3B5Lm9yZy9TY2hlbWFzL09NRS8yMDE2LTA2Ij48SW1hZ2UgSUQ9IkRBUEkiPjxQaXhlbHMgRGltZW5zaW9uT3JkZXI9IlhZQ1pUIiBJRD0iUGl4ZWxzOkRBUEkiIFNpemVUPSIxIiBTaXplWD0iMSIgU2l6ZVk9IjEiPjxUaWZmRGF0YSBGaXJzdEM9IjAiIEZpcnN0VD0iMCIgRmlyc3RaPSIwIiBJRkQ9IjAiIFBsYW5lQ291bnQ9IjEiPjxVVUlEIEZpbGVOYW1lPSJmaWxlOi9Vc2Vycy90Y3M2L0RvY3VtZW50cy9HaXRIdWIvY2VsbHByb2ZpbGVyLzJEX0NlbGxfQW5hbHlzaXMvU2hhcm9uJTIwRmxlaXNjaGVyL3NhbXBsZWRhdGEvRTFfMV8yX0RBUElfMDAxLnRpZiIvPjwvVGlmZkRhdGE+PFBsYW5lIFRoZUM9IjAiIFRoZVQ9IjAiIFRoZVo9IjAiLz48L1BpeGVscz48L0ltYWdlPjxJbWFnZSBJRD0iQ1k1Ij48UGl4ZWxzIERpbWVuc2lvbk9yZGVyPSJYWUNaVCIgSUQ9IlBpeGVsczpDWTUiIFNpemVUPSIxIiBTaXplWD0iMSIgU2l6ZVk9IjEiPjxUaWZmRGF0YSBGaXJzdEM9IjAiIEZpcnN0VD0iMCIgRmlyc3RaPSIwIiBJRkQ9IjAiIFBsYW5lQ291bnQ9IjEiPjxVVUlEIEZpbGVOYW1lPSJmaWxlOi9Vc2Vycy90Y3M2L0RvY3VtZW50cy9HaXRIdWIvY2VsbHByb2ZpbGVyLzJEX0NlbGxfQW5hbHlzaXMvU2hhcm9uJTIwRmxlaXNjaGVyL3NhbXBsZWRhdGEvRTFfWTVfTyIgU2l6ZVQ9IjEiIFNpemVYPSIxIiBTaXplWT0iMSI+PFRpZmZEYXRhIEZpcnN0Qz0iMCIgRmlyc3RUPSIwIiBGaXJzdFo9IjAiIElGRD0iMCIgUGxhbmVDb3VudD0iMSI+PFVVSUQgRmlsZU5hbWU9ImZpbGU6L1VzZXJzL3RjczYvRG9jdW1lbnRzL0dpdEh1Yi9jZWxscHJvZmlsZXIvMkRfQ2VsbF9BbmFseXNpcy9TaGFyb24lMjBGbGVpc2NoZXIvc2FtcGxlZGF0YS9FMV81Xzw/eG1sIHZlcnNpb249IjEuMCIgZW5jb2Rpbmc9IlVURi04Ij8+PE9NRSB4bWxucz0iaHR0cDovL3d3dy5vcGVubWljcm9zY29weS5vcmcvU2NoZW1hcy9PTUUvMjAxNi0wNiI+PEltYWdlIElEPSJEQVBJIj48UGl4ZWxzIERpbWVuc2lvbk9yZGVyPSJYWUNaVCIgSUQ9IlBpeGVsczpEQVBJIiBTaXplVD0iMSIgU2l6ZVg9IjEiIFNpemVZPSIxIj48VGlmZkRhdGEgRmlyc3RDPSIwIiBGaXJzdFQ9IjAiIEZpcnN0Wj0iMCIgSUZEPSIwIiBQbGFuZUNvdW50PSIxIj48VVVJRCBGaWxlTmFtZT0iZmlsZTovVXNlcnMvdGNzNi9Eb2N1bWVudHMvR2l0SHViL2NlbGxwcm9maWxlci8yRF9DZWxsX0FuYWx5c2lzL1NoYXJvbiUyMEZsZWlzY2hlci9zYW1wbGVkYXRhL0UxXzlfMl9EQVBJXzAwMS50aWYiLz48L1RpZmZEYXRhPjxQbGFuZSBUaGVDPSIwIiBUaGVUPSIwIiBUaGVaPSIwIi8+PC9QaXhlbHM+PC9JbWFnZT48SW1hZ2UgSUQ9IkNZNSI+PFBpeGVscyBEaW1lbnNpb25PcmRlcj0iWFlDWlQiIElEPSJQaXhlbHM6Q1k1IiBTaXplVD0iMSIgU2l6ZVg9IjEiIFNpemVZPSIxIj48VGlmZkRhdGEgRmlyc3RDPSIwIiBGaXJzdFQ9IjAiIEZpcnN0Wj0iMCIgSUZEPSIwIiBQbGFuZUNvdW50PSIxIj48VVVJRCBGaWxlTmFtZT0iZmlsZTovVXNlcnMvdGNzNi9Eb2N1bWVudHMvR2l0SHViL2NlbGxwcm9maWxlci8yRF9DZWxsX0FuYWx5c2lzL1NoYXJvbiUyMEZsZWlzY2hlci9zYW1wbGVkYXRhL0U8P3htbCB2ZXJzaW9uPSIxLjAiIGVuY29kaW5nPSJVVEYtOCI/PjxPTUUgeG1sbnM9Imh0dHA6Ly93d3cub3Blbm1pY3Jvc2NvcHkub3JnL1NjaGVtYXMvT01FLzIwMTYtMDYiPjxJbWFnZSBJRD0iREFQSSI+PFBpeGVscyBEaW1lbnNpb25PcmRlcj0iWFlDWlQiIElEPSJQaXhlbHM6REFQSSIgU2l6ZVQ9IjEiIFNpemVYPSIxIiBTaXplWT0iMSI+PFRpZmZEYXRhIEZpcnN0Qz0iMCIgRmlyc3RUPSIwIiBGaXJzdFo9IjAiIElGRD0iMCIgUGxhbmVDb3VudD0iMSI+PFVVSUQgRmlsZU5hbWU9ImZpbGU6L1VzZXJzL3RjczYvRG9jdW1lbnRzL0dpdEh1Yi9jZWxscHJvZmlsZXIvMkRfQ2VsbF9BbmFseXNpcy9TaGFyb24lMjBGbGVpc2NoZXIvc2FtcGxlZGF0YS9FMl80XzJfREFQSV8wMDEudGlmIi8+PC9UaWZmRGF0YT48UGxhbmUgVGhlQz0iMCIgVGhlVD0iMCIgVGhlWj0iMCIvPjwvUGl4ZWxzPjwvSW1hZ2U+PEltYWdlIElEPSJDWTUiPjxQaXhlbHMgRGltZW5zaW9uT3JkZXI9IlhZQ1pUIiBJRD0iUGl4ZWxzOkNZNSIgU2l6ZVQ9IjEiIFNpemVYPSIxIiBTaXplWT0iMSI+PFRpZmZEYXRhIEZpcnN0Qz0iMCIgRmlyc3RUPSIwIiBGaXJzdFo9IjAiIElGRD0iMCIgUGxhbmVDb3VudD0iMSI+PFVVSUQgRmlsZU5hbWU9ImZpbGU6L1VzZXJzL3RjczYvRG9jdW1lbnRzL0dpdEh1Yi9jZWxscHJvZmlsZXIvMkRfQ2VsbF9BbmFseXNpcy9TaGFyb24lMjBGbGVpc2NoZXIvc2FtcGxlZGF0YS9FMl94bWxzaW9uMS4wImVuY29GOD9PTUVuc3A6L3d3Lm9waXlnL1NjaGVtL09NRS8yMC02Ij48SW1hZ2UgREFQST48UGl4ZWxzIG1lbnNpVCIgSURBUEkiIFNpemVUPSIxIiBTaXplWD0iMSIgU2l6ZVk9IjEiPjxUaWZmRGF0YSBGaXJzdEM9IjAiIEZpcnN0VD0iMCIgRmlyc3RaPSIwIiBJRkQ9IjAiIFBsYW5lQ291bnQ9IjEiPjxVVUlEIEZpbGVOYW1lPSJmaWxlOi9Vc2Vycy90Y3M2L0RvY3VtZW50cy9HaXRIdWIvY2VsbHByb2ZpbGVyLzJEX0NlbGxfQW5hbHlzaXMvU2hhcm9uJTIwRmxlaXNjaGVyL3NhbXBsZWRhdGEvRTJfOF9BUF8wMWlmPjxQbGFuZSBUaGVDPSIwIiBUaGVUPSIwIlo9IjAiLz48L3g+PC9tYT48SW1hZ2UgSUQ9IkNZNSI+PFBpeGVscyBEaW1lbnNpb25PcmRlcj0iWFlDWlQiIElEPSJQaXhlbHM6Q1k1IiBTaXplPSIxIiBTaXplWD0iMSI9IjEiPjxUaWZmRGF0YSBGaXJzdEM9IjAiIEZpcnN0VD0iMCIgWj0iMCJEPSJudD0iMVVJRCBGaWFtZWZpbGU6ZXJzb3MvdWNlbHJvZXIvZWxsaXNob24yc2NlcmQ='
+Default_InputFolder,/Users/theresaswayne/Desktop/input
+Default_OutputFolder,/Users/theresaswayne/Desktop/output
+ImageSet_Zip_Dictionary,b'PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz48T01FIHhtbG5zPSJodHRwOi8vd3d3Lm9wZW5taWNyb3Njb3B5Lm9yZy9TY2hlbWFzL09NRS8yMDE2LTA2Ij48SW1hZ2UgSUQ9IkRBUEkiPjxQaXhlbHMgRGltZW5zaW9uT3JkZXI9IlhZQ1pUIiBJRD0iUGl4ZWxzOkRBUEkiIFNpemVUPSIxIiBTaXplWD0iMSIgU2l6ZVk9IjEiPjxUaWZmRGF0YSBGaXJzdEM9IjAiIEZpcnN0VD0iMCIgRmlyc3RaPSIwIiBJRkQ9IjAiIFBsYW5lQ291bnQ9IjEiPjxVVUlEIEZpbGVOYW1lPSJmaWxlOi9Vc2Vycy90aGVyZXNhc3dheW5lL0RvY3VtZW50cy9HaXRIdWIvY2VsbHByb2ZpbGVyLzJEX0NlbGxfQW5hbHlzaXMvU2hhcm9uJTIwRmxlaXNjaGVyL3NhbXBsZWRhdGEvRTFfMV8yX0RBUElfMDAxLnRpZiIvPjwvVGlmZkRhdGE+PFBsYW5lIFRoZUM9IjAiIFRoZVQ9IjAiIFRoZVo9IjAiLz48L1BpeGVscz48L0ltYWdlPjxJbWFnZSBJRD0iQ1k1Ij48UGl4ZWxzIERpbWVuc2lvbk9yZGVyPSJYWUNaVCIgSUQ9IlBpeGVsczpDWTUiIFNpemVUPSIxIiBTaXplWD0iMSIgU2l6ZVk9IjEiPjxUaWZmRGF0YSBGaXJzdEM9IjAiIEZpcnN0VD0iMCIgRmlyc3RaPSIwIiBJRkQ9IjAiIFBsYW5lQ291bnQ9IjEiPjxVVUlEIEZpbGVOYW1lPSJmaWxlOi9Vc2Vycy90aGVyZXNhc3dheW5lL0RvY3VtZW50cy9HaXRIdWIvY2VsbHByb2ZpbGVyLzJEX0NlbGxfQW5hbHlzaXMvU2hhcm9uJTIwRmxlaXNjaGVyL3NhbXBsZWRhdGEvRTFfWTVfTyIgU2l6ZVQ9IjEiIFNpemVYPSIxIiBTaXplWT0iMSI+PFRpZmZEYXRhIEZpcnN0Qz0iMCIgRmlyc3RUPSIwIiBGaXJzdFo9IjAiIElGRD0iMCIgUGxhbmVDb3VudD0iMSI+PFVVSUQgRmlsZU5hbWU9ImZpbGU6L1VzZXJzL3RoZXJlc2Fzd2F5bmUvRG9jdW1lbnRzL0dpdEh1Yi9jZWxscHJvZmlsZXIvMkRfQ2VsbF9BbmFseXNpcy9TaGFyb24lMjBGbGVpc2NoZXIvc2FtcGxlZGF0YS9FMV81Xzw/eG1sIHZlcnNpb249IjEuMCIgZW5jb2Rpbmc9IlVURi04Ij8+PE9NRSB4bWxucz0iaHR0cDovL3d3dy5vcGVubWljcm9zY29weS5vcmcvU2NoZW1hcy9PTUUvMjAxNi0wNiI+PEltYWdlIElEPSJEQVBJIj48UGl4ZWxzIERpbWVuc2lvbk9yZGVyPSJYWUNaVCIgSUQ9IlBpeGVsczpEQVBJIiBTaXplVD0iMSIgU2l6ZVg9IjEiIFNpemVZPSIxIj48VGlmZkRhdGEgRmlyc3RDPSIwIiBGaXJzdFQ9IjAiIEZpcnN0Wj0iMCIgSUZEPSIwIiBQbGFuZUNvdW50PSIxIj48VVVJRCBGaWxlTmFtZT0iZmlsZTovVXNlcnMvdGhlcmVzYXN3YXluZS9Eb2N1bWVudHMvR2l0SHViL2NlbGxwcm9maWxlci8yRF9DZWxsX0FuYWx5c2lzL1NoYXJvbiUyMEZsZWlzY2hlci9zYW1wbGVkYXRhL0UxXzlfMl9EQVBJXzAwMS50aWYiLz48L1RpZmZEYXRhPjxQbGFuZSBUaGVDPSIwIiBUaGVUPSIwIiBUaGVaPSIwIi8+PC9QaXhlbHM+PC9JbWFnZT48SW1hZ2UgSUQ9IkNZNSI+PFBpeGVscyBEaW1lbnNpb25PcmRlcj0iWFlDWlQiIElEPSJQaXhlbHM6Q1k1IiBTaXplVD0iMSIgU2l6ZVg9IjEiIFNpemVZPSIxIj48VGlmZkRhdGEgRmlyc3RDPSIwIiBGaXJzdFQ9IjAiIEZpcnN0Wj0iMCIgSUZEPSIwIiBQbGFuZUNvdW50PSIxIj48VVVJRCBGaWxlTmFtZT0iZmlsZTovVXNlcnMvdGhlcmVzYXN3YXluZS9Eb2N1bWVudHMvR2l0SHViL2NlbGxwcm9maWxlci8yRF9DZWxsX0FuYWx5c2lzL1NoYXJvbiUyMEZsZWlzY2hlci9zYW1wbGVkYXRhL0U8P3htbCB2ZXJzaW9uPSIxLjAiIGVuY29kaW5nPSJVVEYtOCI/PjxPTUUgeG1sbnM9Imh0dHA6Ly93d3cub3Blbm1pY3Jvc2NvcHkub3JnL1NjaGVtYXMvT01FLzIwMTYtMDYiPjxJbWFnZSBJRD0iREFQSSI+PFBpeGVscyBEaW1lbnNpb25PcmRlcj0iWFlDWlQiIElEPSJQaXhlbHM6REFQSSIgU2l6ZVQ9IjEiIFNpemVYPSIxIiBTaXplWT0iMSI+PFRpZmZEYXRhIEZpcnN0Qz0iMCIgRmlyc3RUPSIwIiBGaXJzdFo9IjAiIElGRD0iMCIgUGxhbmVDb3VudD0iMSI+PFVVSUQgRmlsZU5hbWU9ImZpbGU6L1VzZXJzL3RoZXJlc2Fzd2F5bmUvRG9jdW1lbnRzL0dpdEh1Yi9jZWxscHJvZmlsZXIvMkRfQ2VsbF9BbmFseXNpcy9TaGFyb24lMjBGbGVpc2NoZXIvc2FtcGxlZGF0YS9FMl80XzJfREFQSV8wMDEudGlmIi8+PC9UaWZmRGF0YT48UGxhbmUgVGhlQz0iMCIgVGhlVD0iMCIgVGhlWj0iMCIvPjwvUGl4ZWxzPjwvSW1hZ2U+PEltYWdlIElEPSJDWTUiPjxQaXhlbHMgRGltZW5zaW9uT3JkZXI9IlhZQ1pUIiBJRD0iUGl4ZWxzOkNZNSIgU2l6ZVQ9IjEiIFNpemVYPSIxIiBTaXplWT0iMSI+PFRpZmZEYXRhIEZpcnN0Qz0iMCIgRmlyc3RUPSIwIiBGaXJzdFo9IjAiIElGRD0iMCIgUGxhbmVDb3VudD0iMSI+PFVVSUQgRmlsZU5hbWU9ImZpbGU6L1VzZXJzL3RoZXJlc2Fzd2F5bmUvRG9jdW1lbnRzL0dpdEh1Yi9jZWxscHJvZmlsZXIvMkRfQ2VsbF9BbmFseXNpcy9TaGFyb24lMjBGbGVpc2NoZXIvc2FtcGxlZGF0YS9FMl94bWxzaW9uMS4wImVuY29GOD9PTUVuc3A6L3d3Lm9waXlnL1NjaGVtYXMvT01FLzIwLTYiPjxJbWFnZSBEQVBJPjxQaXhlbHMgbWVuc2lUIiBJREFQSSIgU2l6ZVQ9IjEiIFNpemVYPSIxIiBTaXplWT0iMSI+PFRpZmZEYXRhIEZpcnN0Qz0iMCIgRmlyc3RUPSIwIiBGaXJzdFo9IjAiIElGRD0iMCIgUGxhbmVDb3VudD0iMSI+PFVVSUQgRmlsZU5hbWU9ImZpbGU6L1VzZXJzL3RoZXJlc2Fzd2F5bmUvRG9jdW1lbnRzL0dpdEh1Yi9jZWxscHJvZmlsZXIvMkRfQ2VsbF9BbmFseXNpcy9TaGFyb24lMjBGbGVpc2NoZXIvc2FtcGxlZGF0YS9FMl84X0FQXzAxaWY+PFBsYW5lIFRoZUM9IjAiIFRoZVQ9IjAiWj0iMCIvPjwveD48L21hPjxJbWFnZSBJRD0iQ1k1Ij48UGl4ZWxzIERpbWVuc2lvbk9yZGVyPSJYWUNaVCIgSUQ9IlBpeGVsczpDWTUiIFNpemU9IjEiIFNpemVYPSIxIj0iMSI+PFRpZmZEYXRhIEZpcnN0Qz0iMCIgRmlyc3RUPSIwIiBaPSIwIkQ9Im50PSIxVUlEIEZpYW1lZmlsZTplcnNvcy91Y2Vscm9lci9lbGxpc2hvbjJzY2hlcnNhZA=='
 Metadata_Tags,"[""ImageNumber""]"
 Pipeline_Pipeline,"CellProfiler Pipeline: http://www.cellprofiler.org
 Version:5
 DateRevision:424
 GitHash:
-ModuleCount:15
+ModuleCount:12
 HasImagePlaneDetails:False
 
 Images:[module_num:1|svn_version:'Unknown'|variable_revision_number:2|show_window:False|notes:['Project by Theresa Swayne to measure antibody binding in Cytation 5 immunofluorescence images']|batch_state:array([], dtype=uint8)|enabled:True|wants_pause:False]
@@ -67,7 +67,7 @@ Groups:[module_num:4|svn_version:'Unknown'|variable_revision_number:2|show_windo
     grouping metadata count:1
     Metadata category:None
 
-IdentifyPrimaryObjects:[module_num:5|svn_version:'Unknown'|variable_revision_number:15|show_window:True|notes:['Identify the nuclei from the DAPI image. Three-class thresholding performs better than the default two-class thresholding in this case.']|batch_state:array([], dtype=uint8)|enabled:True|wants_pause:False]
+IdentifyPrimaryObjects:[module_num:5|svn_version:'Unknown'|variable_revision_number:15|show_window:False|notes:['Identify the nuclei from the DAPI image. Three-class thresholding performs better than the default two-class thresholding in this case.']|batch_state:array([], dtype=uint8)|enabled:True|wants_pause:False]
     Select the input image:DAPI
     Name the primary objects to be identified:Nuclei
     Typical diameter of objects, in pixel units (Min,Max):25,65
@@ -103,73 +103,29 @@ IdentifyPrimaryObjects:[module_num:5|svn_version:'Unknown'|variable_revision_num
     # of deviations:2
     Thresholding method:Otsu
 
-IdentifySecondaryObjects:[module_num:6|svn_version:'Unknown'|variable_revision_number:10|show_window:True|notes:['Identify the cells by using the nuclei as a ""seed"" region, then growing outwards until stopped by the image threshold or by a neighbor. The Propagation method is used to delineate the boundary between neighboring cells.']|batch_state:array([], dtype=uint8)|enabled:False|wants_pause:False]
-    Select the input objects:Nuclei
-    Name the objects to be identified:Cells
-    Select the method to identify the secondary objects:Propagation
-    Select the input image:CY5
-    Number of pixels by which to expand the primary objects:10
-    Regularization factor:0.05
-    Discard secondary objects touching the border of the image?:No
-    Discard the associated primary objects?:No
-    Name the new primary objects:FilteredNuclei
-    Fill holes in identified objects?:Yes
-    Threshold setting version:12
-    Threshold strategy:Global
-    Thresholding method:Minimum Cross-Entropy
-    Threshold smoothing scale:0
-    Threshold correction factor:1
-    Lower and upper bounds on threshold:0,1
-    Manual threshold:0
-    Select the measurement to threshold with:None
-    Two-class or three-class thresholding?:Two classes
-    Log transform before thresholding?:No
-    Assign pixels in the middle intensity class to the foreground or the background?:Foreground
-    Size of adaptive window:10
-    Lower outlier fraction:0.05
-    Upper outlier fraction:0.05
-    Averaging method:Mean
-    Variance method:Standard deviation
-    # of deviations:2
-    Thresholding method:Otsu
-
-IdentifyTertiaryObjects:[module_num:7|svn_version:'Unknown'|variable_revision_number:3|show_window:True|notes:['Identify the cytoplasm by ""subtracting"" the nuclei objects from the cell objects.']|batch_state:array([], dtype=uint8)|enabled:False|wants_pause:False]
-    Select the larger identified objects:Cells
-    Select the smaller identified objects:Nuclei
-    Name the tertiary objects to be identified:Cytoplasm
-    Shrink smaller object prior to subtraction?:Yes
-
-MeasureObjectSizeShape:[module_num:8|svn_version:'Unknown'|variable_revision_number:3|show_window:False|notes:['Measure morphological features from the cell, nuclei and cytoplasm objects.']|batch_state:array([], dtype=uint8)|enabled:False|wants_pause:False]
+MeasureObjectSizeShape:[module_num:6|svn_version:'Unknown'|variable_revision_number:3|show_window:False|notes:['Measure morphological features from the cell, nuclei and cytoplasm objects.']|batch_state:array([], dtype=uint8)|enabled:False|wants_pause:False]
     Select object sets to measure:Nuclei
     Calculate the Zernike features?:No
     Calculate the advanced features?:No
 
-MeasureImageIntensity:[module_num:9|svn_version:'Unknown'|variable_revision_number:4|show_window:False|notes:[]|batch_state:array([], dtype=uint8)|enabled:True|wants_pause:False]
+MeasureImageIntensity:[module_num:7|svn_version:'Unknown'|variable_revision_number:4|show_window:False|notes:[]|batch_state:array([], dtype=uint8)|enabled:True|wants_pause:False]
     Select images to measure:CY5
     Measure the intensity only from areas enclosed by objects?:No
     Select input object sets:
     Calculate custom percentiles:No
     Specify percentiles to measure:10,90
 
-MeasureObjectIntensity:[module_num:10|svn_version:'Unknown'|variable_revision_number:4|show_window:True|notes:['Measure intensity features from nuclei and cell objects against the cropped DAPI image.']|batch_state:array([], dtype=uint8)|enabled:False|wants_pause:False]
+MeasureObjectIntensity:[module_num:8|svn_version:'Unknown'|variable_revision_number:4|show_window:False|notes:['Measure intensity features from nuclei and cell objects against the cropped DAPI image.']|batch_state:array([], dtype=uint8)|enabled:False|wants_pause:False]
     Select images to measure:CropBlue
     Select objects to measure:Nuclei, Cells, Cytoplasm
 
-MeasureTexture:[module_num:11|svn_version:'Unknown'|variable_revision_number:7|show_window:True|notes:['Measure texture features of the nuclei, cells and cytoplasm from the cropped DAPI image.']|batch_state:array([], dtype=uint8)|enabled:False|wants_pause:False]
-    Select images to measure:CropBlue
-    Select objects to measure:Cells, Nuclei, Cytoplasm
-    Enter how many gray levels to measure the texture at:256
-    Hidden:1
-    Measure whole images or objects?:Both
-    Texture scale to measure:3
-
-GrayToColor:[module_num:12|svn_version:'Unknown'|variable_revision_number:4|show_window:False|notes:['Combine the cropped grayscale channels into a color RGB image.']|batch_state:array([], dtype=uint8)|enabled:True|wants_pause:False]
+GrayToColor:[module_num:9|svn_version:'Unknown'|variable_revision_number:4|show_window:False|notes:['Combine the channels into a color RGB image with higher weight for the Cy5']|batch_state:array([], dtype=uint8)|enabled:True|wants_pause:False]
     Select a color scheme:RGB
     Rescale intensity:No
     Select the image to be colored red:CY5
     Select the image to be colored green:Leave this black
     Select the image to be colored blue:DAPI
-    Name the output image:RGBImage
+    Name the output image:Merge
     Relative weight for the red image:1
     Relative weight for the green image:1
     Relative weight for the blue image:1
@@ -186,9 +142,9 @@ GrayToColor:[module_num:12|svn_version:'Unknown'|variable_revision_number:4|show
     Color:#ff0000
     Weight:1.0
 
-OverlayOutlines:[module_num:13|svn_version:'Unknown'|variable_revision_number:4|show_window:False|notes:[]|batch_state:array([], dtype=uint8)|enabled:True|wants_pause:False]
+OverlayOutlines:[module_num:10|svn_version:'Unknown'|variable_revision_number:4|show_window:False|notes:[]|batch_state:array([], dtype=uint8)|enabled:True|wants_pause:False]
     Display outlines on a blank image?:No
-    Select image on which to display outlines:RGBImage
+    Select image on which to display outlines:Merge
     Name the output image:NucleiOnImage
     Outline display mode:Color
     Select method to determine brightness of outlines:Max of image
@@ -196,15 +152,15 @@ OverlayOutlines:[module_num:13|svn_version:'Unknown'|variable_revision_number:4|
     Select outline color:#FFFF00
     Select objects to display:Nuclei
 
-SaveImages:[module_num:14|svn_version:'Unknown'|variable_revision_number:16|show_window:False|notes:['Save the color image as an 8-bit TIF, appending the text RBG to the original filename of the DAPI image.']|batch_state:array([], dtype=uint8)|enabled:True|wants_pause:False]
+SaveImages:[module_num:11|svn_version:'Unknown'|variable_revision_number:16|show_window:False|notes:['Save the color image as an 8-bit TIF, appending the text RBG to the original filename of the DAPI image.']|batch_state:array([], dtype=uint8)|enabled:True|wants_pause:False]
     Select the type of image to save:Image
     Select the image to save:NucleiOnImage
-    Select method for constructing file names:Sequential numbers
-    Select image name for file prefix:OrigBlue
+    Select method for constructing file names:From image filename
+    Select image name for file prefix:DAPI
     Enter file prefix:nuclei
     Number of digits:3
     Append a suffix to the image file name?:Yes
-    Text to append to the image name:RGB
+    Text to append to the image name:_nuclei
     Saved file format:tiff
     Output file location:Default Output Folder|None
     Image bit depth:8-bit integer
@@ -216,12 +172,12 @@ SaveImages:[module_num:14|svn_version:'Unknown'|variable_revision_number:16|show
     How to save the series:T (Time)
     Save with lossless compression?:No
 
-ExportToSpreadsheet:[module_num:15|svn_version:'Unknown'|variable_revision_number:13|show_window:False|notes:['Export any measurements to a comma-delimited file (.csv). The measurements made for the nuclei, cell and cytoplasm objects will be saved to separate .csv files, in addition to the per-image .csv’s.']|batch_state:array([], dtype=uint8)|enabled:True|wants_pause:False]
+ExportToSpreadsheet:[module_num:12|svn_version:'Unknown'|variable_revision_number:13|show_window:False|notes:['Export any measurements to a comma-delimited file (.csv). The measurements made for the nuclei, cell and cytoplasm objects will be saved to separate .csv files, in addition to the per-image .csv’s.']|batch_state:array([], dtype=uint8)|enabled:True|wants_pause:False]
     Select the column delimiter:Comma ("","")
-    Add image metadata columns to your object data file?:No
-    Add image file and folder names to your object data file?:No
+    Add image metadata columns to your object data file?:Yes
+    Add image file and folder names to your object data file?:Yes
     Select the measurements to export:No
-    Calculate the per-image mean values for object measurements?:Yes
+    Calculate the per-image mean values for object measurements?:No
     Calculate the per-image median values for object measurements?:No
     Calculate the per-image standard deviation values for object measurements?:No
     Output file location:Default Output Folder|.
@@ -252,4 +208,4 @@ ExportToSpreadsheet:[module_num:15|svn_version:'Unknown'|variable_revision_numbe
     File name:Cytoplasm.csv
     Use the object name for the file name?:No
 "
-Run_Timestamp,2022-08-30T12:46:32.278887
+Run_Timestamp,2022-09-02T12:00:18.254958
