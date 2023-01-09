@@ -1,0 +1,40 @@
+EXAMPLE USAGE 3
+STRONG EDGES AND GRAY CELL INTERIOR:
+
+1. Input imagery features:
+    In these images cells have distinctive bright edges and their interiors are of similar intensity as the background. Also cell internals are visible which can cause over-segmentation.
+
+    In order to improve the results we can use auto-adaptation to find better fitting parameters.
+    
+2. Auto adaptation:
+    Given input image and the expected partial-labeling the module can search for the best parameters. It is done in a number of independent iterations (steps) specified in IdentifyYeastCells module. At the end of every iteration best parameters found so far are saved to the pipeline.
+
+    In order to start the process set desired number of iterations (start from 1) and press "Autoadapt parameters" button. Depending on the module settings you will have to provide all images used in the segmentation (such as background or ignore mask). 
+    
+    The next step is hand-drawing contours on the input image. Try to follow below guidelines:
+    - choose contours from different parts of image    
+    - choose contours that are closely clumped together so CellStar can learn how to declump them
+    - choose small and big but do not pick cells that are not important 'outliers' 
+    Alternatively you can prepare labels earlier and save it as file <input_image_and_extension>.lab.png (see Labels folder). Module will load that as an initial labeling. There is also a button 'Add from file' for loading label from other location. 
+    
+    When autoadaptation is finished you can run module and check the results on the new set of parameters.
+    
+    If adaptation was not successful:
+    - try more adaptation iterations
+    - use different set of labels or input image
+    
+3. Pipelines:
+    All pipelines have similar setup:
+    LoadImage
+    IdentifyYeastCells
+        - default parameters
+        - precision 2
+
+    [StrongEdgesAndGray_1_Default]
+    Default pipeline as in Example Usage 1.
+    
+    [StrongEdgesAndGray_2_Adapted]
+    Pipeline after auto adaptation using TS6_BF_frame004.tif.lab.png labels.
+    Only difference is in 'Autoadapted Parameters'.
+    
+    

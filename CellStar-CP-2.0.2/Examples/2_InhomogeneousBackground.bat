@@ -1,0 +1,1 @@
+python batch_cellprofiler.py 2_InhomogeneousBackground/Input 2_InhomogeneousBackground/Result 2_InhomogeneousBackground/InhomogeneousBackground.cppipe 2<&1

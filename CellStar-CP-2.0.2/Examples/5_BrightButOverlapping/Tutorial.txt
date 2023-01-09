@@ -1,0 +1,100 @@
+EXAMPLE USAGE 5
+OVERLAPPING CELLS WITH BRIGHT INTERIOR:
+
+1. Input imagery features:
+    In these images cells have distinctive dark edges and their interiors are brighter than the background. CellStar has a switch which allow to properly find cells in this type of imagery.    
+    
+    However in this particular experiment there is no effective enforcement of monolayer growth and therefore cells can grow and stay on top of each other which can interfere with CellStar segmentation. 
+    
+    Imagery is somewhat similar to Example Usage 4 [EU4] (actually comes from the same experiment) the difference is the focus setting which makes the cells look quite different. Therefore in this description we will often refer to EU4 to avoid redundancy.
+    
+    As in EU4 two main problems arise but now with different flavour:
+    - Cell appearance change:
+        Focus setting (cells are closer than focal point) already makes cells to have out of focus look (bright with dark edges). This means that the change in appearance is less drastic than in EU4 (see FocusChange.gif). The cells that grow on top of each other are simply more blurred up to being just bright blobs. It can result in CellStar missing a significant number of cells. 
+        
+        False Negative number may be reduced using autoadaptation (see Example Usage 3) however it may also enlarge the overlapping problem.
+    
+    - Cell overlapping:
+        Overlapping as in EU4 makes it impossible to use data collected in fluorescent channels thus such cells have to be filtered out. However in this setting the problem is not that big as CellStar usually do not find any cells in regions with heavy overlap. On the other hand some overlapping cells may be so blurred so that they go unnoticed. 
+        
+        It is also notably that (contrary to EU4) overlapping regions are brighter than the rest of the image so there may be a way to find them and exclude from processing using IgnoreMask image.
+    
+    However we can still use CellStar to correctly extract a significant number of cells and with careful filtering reduce the number of False-Positives resulting in high precision which will allow to extract reliable research data.
+
+2. Basic filtering (as in EU4):
+    There are 3 basic measurements type that we can use to improve precision:
+    - Area (filtered by CellStar)
+    - Quality (calculated by CellStar)
+    - Shape (calculated by CellProfiler)
+    
+    The threshold setting should be calculated as:
+    - Area -- high (e.g. 70% of average area) 
+    - Quality -- imagery dependent (see below) can vary especially after parameter fitting
+    - Shape -- imagery dependent (see below) but these values are generally good:
+        - Eccentricity < 0.7
+        - Compactness < 1.1
+    
+    In order to find thresholds for Quality and Shape we need to calculate them for a sample of our imagery and visualize. We can view a histogram, see basic statistics or display measurements values on object in the image. The last method seems to be the most useful as it allows to identify which value respond to correct or incorrect cell (see pipeline BrightButOverlapping_2_Thresholds).
+    
+    See EU4 description for more details.
+
+3. Ignoring overlapping regions:
+    If False-Positive is too high after basic filtering we can improve it by ignoring the regions where overlapping occurs. In this imagery, contrary to EU4, regions with overlapping cells is usually much brighter than the rest of the image. Therefore it can be found using thresholding and then applied as a IgnoreMask to CellStar.
+
+    CellStar marks IgnoreMask pixels as 'no-go zones' and it will not create any cells there and trim the close ones.
+    
+    Flexible thresholding can be done in CellProfiler using ApplyThreshold module with Background method. It should return the pixels that much higher intensity than the rest of the image. In order to get rid of the noise we can erode that mask. Next step is dilation of the mask to ensure that all overlapping cells are effectively rejected.
+    
+    The final pipeline will contain that ignore mask calculation as a first step and it should improve False-Positive number (see pipeline BrightButOverlapping_4_Ignoring).
+      
+4. Pipelines:
+    [BrightButOverlapping_1_DefaultBig]
+        LoadImage
+        IdentifyYeastCells
+            - default parameters
+            - 'Is area without cells brighter than cell interior' set to false
+            - precision 2 and (1.2 for random seeds)
+            - filtering by area: 700 < area < infinite
+    
+    [BrightButOverlapping_2_Thresholds]
+    As in [BrightButOverlapping_1_DefaultBig] but with measurements calculation and visualization.
+        LoadImage
+        IdentifyYeastCells
+            - default parameters
+            - 'Is area without cells brighter than cell interior' set to false
+            - precision 2 and (1.2 for random seeds)
+            - filtering by area: 700 < area < infinite
+        MeasureObjectSizeShape
+        DisplayDataOnImage x 3 (quality, compactness, eccentricity)
+    
+    [BrightButOverlapping_3_BasicFilter]
+    As in [BrightButOverlapping_2_Thresholds] but with filtering instead of visualization.
+        LoadImage
+        IdentifyYeastCells
+            - default parameters
+            - 'Is area without cells brighter than cell interior' set to false
+            - precision 2 and (1.2 for random seeds)
+            - filtering by area: 700 < area < infinite
+        MeasureObjectSizeShape
+        FilterObjects
+    
+    [BrightButOverlapping_4_IgnoreOverlap]
+    Estimate overlap mask and give it to CellStar module. Rest of a pipeline as in [DarkButOverlapping_3_BasicFilter].
+        LoadImage
+        ApplyThreshold (background, no smooth)
+        Morph (erosion-3)
+        Morph (dilation-11 x 3)
+        IdentifyYeastCells
+            - default parameters
+            - 'Is area without cells brighter than cell interior' set to false
+            - Select ignore mask: MorphThresholdMask 
+            - precision 2 and (1.2 for random seeds)
+            - filtering by area: 700 < area < infinite
+        MeasureObjectSizeShape
+        FilterObjects
+    
+5. Further improvements
+    In order to further improve the quality of the segmentation, the number of changes have to be investigated:
+    - use parameter fitting to improve False-Negative number, however this will also produce more False-Positive (notably in overlapping areas)
+    - find overlapping regions will more precision using Ilastik module which classify pixels using user provided ground truth
+    - for better filtering train classifier as in EU4

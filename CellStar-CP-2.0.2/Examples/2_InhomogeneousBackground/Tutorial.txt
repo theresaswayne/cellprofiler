@@ -1,0 +1,17 @@
+EXAMPLE USAGE 2
+INHOMOGENEOUS BACKGROUND AND STRONG EDGES AND DARK CELL INTERIOR:
+
+1. Input imagery features:
+    As in Example Usage 1 cells have distinctive bright edges and their interiors are significantly darker than the background.
+    The only difference is that background is inhomogeneous and can therefore interfere with segmentation. 
+    In this case the cells that lie on the "spot light" are missed by the pipeline from Example Usage 1.
+    
+    In order to fix that problem we can provide background image which will improve segmentation quality.
+2. Pipeline:
+    LoadImage
+        - input
+        - single background for all other input
+    IdentifyYeastCells
+        - default parameters
+        - precision 2
+        - background from file

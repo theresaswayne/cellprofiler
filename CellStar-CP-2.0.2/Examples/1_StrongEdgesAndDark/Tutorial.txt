@@ -1,0 +1,13 @@
+EXAMPLE USAGE 1
+STRONG EDGES AND DARK CELL INTERIOR:
+
+1. Input imagery features:
+    In these images cells have distinctive bright edges and their interiors are significantly darker than the background.
+
+    Initially CellStar was designed to handle these type of images so no specific configuration is necessary. However in some cases it may be beneficial to increase number of random seeds to 1.5.
+
+2. Pipeline:
+    LoadImage
+    IdentifyYeastCells
+        - default parameters
+        - precision 2

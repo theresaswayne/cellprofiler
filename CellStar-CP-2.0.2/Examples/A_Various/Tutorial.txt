@@ -1,0 +1,15 @@
+EXAMPLE USAGE A
+VARIOUS PARAMETER FITTING:
+
+1. Input imagery features:
+    In this category we will place any other imagery which can be solved using parameter auto-adaptation.
+    
+2. Ready to use pipelines:
+    [DarkWithMoreInternals_Adapted]
+    Pipeline for segmentation of DarkCloser1.tif
+        LoadImage
+        IdentifyYeastCells
+            - autoadapted parameters
+            - precision 2 (and 1.2 random seeds)
+            - 'Is area without cells brighter than cell interior' set to Yes
+    

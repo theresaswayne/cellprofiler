@@ -1,0 +1,2 @@
+python batch_cellprofiler.py 3_StrongEdgesAndGray/Input 3_StrongEdgesAndGray/Result_1_Default 3_StrongEdgesAndGray/StrongEdgesAndGray_1_Default.cppipe 2<&1
+python batch_cellprofiler.py 3_StrongEdgesAndGray/Input 3_StrongEdgesAndGray/Result_2_Adapted 3_StrongEdgesAndGray/StrongEdgesAndGray_2_Adapted.cppipe 2<&1

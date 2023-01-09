@@ -1,0 +1,5 @@
+python batch_cellprofiler.py 4_DarkButOverlapping/Input 4_DarkButOverlapping/Result_1_DefaultBig 4_DarkButOverlapping/DarkButOverlapping_1_DefaultBig.cppipe 2<&1
+python batch_cellprofiler.py 4_DarkButOverlapping/Input 4_DarkButOverlapping/Result_2_Thresholds 4_DarkButOverlapping/DarkButOverlapping_2_Thresholds.cppipe 2<&1
+python batch_cellprofiler.py 4_DarkButOverlapping/Input 4_DarkButOverlapping/Result_3_FilterBasic 4_DarkButOverlapping/DarkButOverlapping_3_FilterBasic.cppipe 2<&1
+python batch_cellprofiler.py "%cd%/4_DarkButOverlapping/Input" "%cd%/4_DarkButOverlapping/Result_4_ExportToCPA" 4_DarkButOverlapping/DarkButOverlapping_4_ExportToCPA.cppipe 2<&1
+python batch_cellprofiler.py 4_DarkButOverlapping/Input 4_DarkButOverlapping/Result_5_Final 4_DarkButOverlapping/DarkButOverlapping_5_Final.cppipe 2<&1

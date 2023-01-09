@@ -1,0 +1,58 @@
+EXAMPLE USAGE 6
+FLUORESCENT IMAGERY:
+
+1. Input imagery features:
+    The images in fluorescent channel with cells designed so that their entire interior respond.
+    
+    This is not data that CellStar was designed for and there exist a number of other dedicated software for segmentation in fluorescent imagery (notably in  CellProfiler). 
+    However in some dense colony scenarios it may be difficult for them to properly disjoint nearby cells causing under-segmentation. 
+    
+    Therefore CellStar was extended to try to adapt to this type of imagery. This option is in proof of concept state so it may not work well for all datasets. The resulting segmentation should be filtered to remove incorrect contours.  
+
+    We can also use autoadaptation to try further improve segmentation. See Example Usage 3 for more details.
+    
+2. Smoothing contours
+    The resulting contours are irregular and sharp which should not be the case for yeast cells. It can also interfere with some of the shape measures.
+    
+    Simple way to achieve smooth contours is shrinking and expanding objects (see pipeline FluorescentImagery_1_Smoothed).
+
+3. Filtering:
+    There are 3 basic measurements type that we can use to improve precision:
+    - Area (filtered by CellStar)
+    - Quality (calculated by CellStar)
+    - Shape (calculated by CellProfiler)
+    
+    However in this case we will use only Area and Shape. The reasoning is that Area as well as basic Shape parameters can be easily configured as they are fairly constant in yeast cells population. Therefore the default ones should be good in filtering.
+    
+    See Example Usage 4 if want to tune the filtering parameters.
+
+4. Pipelines:
+    [FluorescentImagery_1_Smoothed]
+        LoadImage
+        CorrectIluminationCalculate (fit polynomial)
+        CorrectIluminationApply (divide)
+        ExpandOrShrinkObjects (shrink)
+        ExpandOrShrinkObjects (expand)
+        IdentifyYeastCells
+            - higher average cell diameter than actual 40 (real around 30)
+            - 'Do you want to segment brightfield images' set to No
+            - 'Is area without cells brighter than cell interior' set to No
+            - precision 2 and (1.5 for random seeds, 3 cell size variants)
+        
+            
+    [FluorescentImagery_2_BigShapeFilter]
+    As in [FluorescentImagery_1_FluBig] but with shape measuring and filtering.
+        LoadImage
+        CorrectIluminationCalculate (fit polynomial)
+        CorrectIluminationApply (divide)
+        IdentifyYeastCells
+            - higher average cell diameter than actual 40 (real around 30)
+            - 'Do you want to segment brightfield images' set to No
+            - 'Is area without cells brighter than cell interior' set to No
+            - precision 2 and (1.5 for random seeds, 3 cell size variants)
+            - filtering by area: 300 < area < infinite
+        MeasureObjectSizeShape
+        FilterObjects (compactness, eccentricity)
+    
+5. Ready to use solution
+    The above discussion and pipelines are designed to show how the certain imagery and problems can be approached and solved. However they are not necessarily the best out-of-the-box solution. If you look for a better performing pipeline see _Solution folder.

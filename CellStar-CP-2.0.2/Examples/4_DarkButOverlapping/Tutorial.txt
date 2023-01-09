@@ -1,0 +1,138 @@
+EXAMPLE USAGE 4
+OVERLAPPING CELLS WITH DARK INTERIOR:
+
+1. Input imagery features:
+    In these images cells have distinctive bright edges and their interiors are darker than the background. 
+    However in this case there is no effective enforcement of monolayer growth and therefore cells can grow and stay on top of each other which can interfere with CellStar segmentation. Two main problems arise:
+    
+    - Cell appearance change:
+        The appearance of yeast cells in bright-field imagery depend on the focus setting and their distance to focal point. This effect can be clearly see in FocusChange.gif where the distance is getting smaller. It means that CellStar can properly segment only a part of the cells and miss cells that are because of their Z-position are not recognized (high False Negative).
+        
+        False Negative number may be reduced using autoadaptation (see Example Usage 3) however in this case it is not necessary and may enlarge the other problem.
+    
+    - Cell overlapping:
+        Overlapping occurs where more than one cell occupies the same region in the image. In this case it may be impossible to use data collected in fluorescent channels as it may yield false information (an unknown aggregation of all cells in the stack). CellStar may find some cells in these stacks but it is highly unwanted (high False Positive). 
+    
+    However we can still use CellStar to correctly extract a significant number of cells and with careful filtering reduce the number of False-Positives resulting in high precision which will allow to extract reliable research data.
+
+2. Basic filtering:
+    There are 3 basic measurements type that we can use to improve precision:
+    - Area (filtered by CellStar)
+    - Quality (calculated by CellStar)
+    - Shape (calculated by CellProfiler)
+
+    The area filtering should be done in CellStar module as it can use that information to yield better segmentation. The threshold can be set high (e.g. 70% of average area) because in this case we accept higher False Negative number (see pipeline DarkButOverlapping_1_DefaultBig).
+    
+    In order to find thresholds for Quality and Shape we need to calculate them for a sample of our imagery and visualize. We can view a histogram, see basic statistics or display measurements values on object in the image. The last method seems to be the most useful as it allows to identify which value respond to correct or incorrect cell (see pipeline DarkButOverlapping_2_Thresholds).
+    
+    Quality measure can vary slightly from one image to another so it important to check a few to find a proper cut off. This measure should filter out under-segmentation and contours that cover background.
+    
+    In shape measurement the most useful are Compactness and Eccentricity which describe how much circular the object is. It should allow us to filter out cells that are partial or incorrect contour found between other cells. 
+    
+    The filtering should significantly improve precision of the segmentation (see pipeline DarkButOverlapping_3_BasicFilter).
+
+3. Advanced filtering using CPA classifiers (CPA version 2.2.1):
+    If False-Positive is too high after basic filtering we can use CellProfiler Analyst and its classifiers to improve filtering. First we need to export all the measurements (more than used in basic) and overlays to database. For more detailed description of CPA usage see general Manuals folder.
+    
+    The measurements to export include:
+    - Shape
+    - Intensity
+    - Texture
+    
+    Because the intensity measures can depend on the illumination of a particular image then it is beneficial to remove that factor. This can be achieved using Edge-Image of input for measurements calculation. LoG filter seems to be well suited for the task as it introduce less noise than other methods.
+    
+    Overlays can be very useful in ground truth preparation and they can be saved to database using SaveImages with "Record file and path..." option on.
+    It is important to export only one set of objects to database (see simple configuration in pipeline DarkButOverlapping_4_ExportToCPA).
+    
+    After finished analysis and export we should first edit *.properties file to ensure that object location data is not used in classification. 
+    The ignored columns line should look like: 
+        classifier_ignore_columns  =  table_number_key_column, image_number_key_column, object_number_key_column, ImageNumber, ObjectNumber, .*Parent.*, .*Children.*, .*Center_.*, .*Location.*, .*_Metadata_.*
+        
+    This work can be automated with script that can be found in general Manuals folder.
+    
+    Now we can run CPA and point it to created properties file. The idea is to train classifier based on manual classification (positive, negative) and then export as a set of rules that can be used in CP. First lets switch to FastGentleBoosting classifier as it is the one compatible with CellProfiler.
+    
+    The process should start with a number of random fetches of cells which we distribute to positive/negative bins (see CPA_1_Random.jpg). Then we can train classifier and use it to present us with random fetches from presumable positive or negative classes which allows us to quickly find and correct objects that are misclassified (see CPA_1_Positive.jpg). It is important to have at least 20 various examples of both classes in final classification set. Another important factor is to have a number of images from different time points of the experiments so that the resulting classifier does not depend on the specific lighting conditions. 
+    
+    The look of the tiles and be changed using menu - for example overlays can be turned on or off.
+    
+    The complementing way to find and manually classify examples is to right click on tile and show full image. Then we can classify all objects in the image and drag-and-drop them from the image to the correct bins (see CPA_3_FullImage.jpg).
+    
+    The training set (positive, negative bins) can be saved and loaded so it is not lost after closing CPA.
+    
+    After every training the rules used for classification are shown and its length depend on the max rules setting which should not be higher than 20. 
+    
+    The result of the training should be rules.txt file with rules which have to manually copied from text box. They can be then used in CellProfiler FilterObject module. It is important to note that these rules include the name of the objects (in this case FilteredBlue) so if it is different then the file has to be modified.
+    
+    For our detailed manual for CPA classificator usage see CPA_Usage.pdf in Manuals folder.
+    For more information and guidelines for classificator training see http://cellprofiler.org/cpa/5_classifier.html.
+    For training video for classifactor training watch https://www.youtube.com/watch?v=XMKgiRGb4IY.
+    For more information and instruction about CPA see http://cellprofiler.org/cpa/.
+    
+    The final pipeline will consist of two filtering methods: basic and rules based (see pipeline DarkButOverlapping_5_Classifier).
+      
+4. Pipelines:
+    [DarkButOverlapping_1_DefaultBig]
+        LoadImage
+        IdentifyYeastCells
+            - default parameters
+            - precision 2 and (1.2 for random seeds)
+            - filtering by area: 700 < area < infinite
+    
+    [DarkButOverlapping_2_Thresholds]
+    As in [DarkButOverlapping_1_DefaultBig] but with measurements calculation and visualization.
+        LoadImage
+        IdentifyYeastCells
+            - default parameters
+            - precision 2 and (1.2 for random seeds)
+            - filtering by area: 700 < area < infinite
+        MeasureObjectSizeShape
+        DisplayDataOnImage x 3 (quality, compactness, eccentricity)
+    
+    [DarkButOverlapping_3_BasicFilter]
+    As in [DarkButOverlapping_2_Thresholds] but with filtering instead of visualization.
+        LoadImage
+        IdentifyYeastCells
+            - default parameters
+            - precision 2 and (1.2 for random seeds)
+            - filtering by area: 700 < area < infinite
+        MeasureObjectSizeShape
+        FilterObjects
+    
+    [DarkButOverlapping_4_ExportToCPA]
+    As in [DarkButOverlapping_3_BasicFilter] but then recalculating measurements for LoG image and exporting in CellProfiler Analyst compliant format.
+        LoadImage
+        IdentifyYeastCells
+            - default parameters
+            - precision 2 and (1.2 for random seeds)
+            - filtering by area: 700 < area < infinite
+        MeasureObjectSizeShape
+        FilterObjects
+        EnhanceEdges (LoG of filtered)
+        MeasureObjectSizeShape (for filtered)
+        MeasureObjectIntensity (for filtered on LoG)
+        MeasureTexture (for filtered on LoG)
+        SaveImages (overlays to database)
+        ExportToDatabase
+    
+    [DarkButOverlapping_5_Classifier]
+    As in [DarkButOverlapping_3_BasicFilter] but with more measurements and additional filtering step using rules calculated in CPA.
+        LoadImage
+        IdentifyYeastCells
+            - default parameters
+            - precision 2 and (1.2 for random seeds)
+            - filtering by area: 700 < area < infinite
+        MeasureObjectSizeShape
+        FilterObjects (basic)
+        EnhanceEdges (LoG of filtered)
+        MeasureObjectSizeShape (for filtered)
+        MeasureObjectIntensity (for filtered on LoG)
+        MeasureTexture (for filtered on LoG)
+        FilterObjects (cpa rules)
+        
+5. Ready to use solution
+    The above discussion and pipelines are designed to show how the certain imagery and problems can be approached and solved. However they are not necessarily the best out-of-the-box solution. For example in this case the classifier was trained using only a few images and small ground truth. If you look for more flexible and general pipelines see _Solution folder.
+    
+6. Random Forests classifiers
+    In CPA there is a number of available classifiers from which the most promising seem to be RandomForests which can yield better results than FastGentleBooting. However its results cannot be used in CP (as the export is not ready). Therefore one can use if it does not plan to move analysis back to CellProfiler.
+    

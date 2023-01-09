@@ -1,0 +1,2 @@
+python batch_cellprofiler.py 7_StrongEdgesAndWhite/Input 7_StrongEdgesAndWhite/Result_1_Default 7_StrongEdgesAndWhite/StrongEdgesAndWhite_1_Default.cppipe 2<&1
+python batch_cellprofiler.py 7_StrongEdgesAndWhite/Input 7_StrongEdgesAndWhite/Result_2_Adapted 7_StrongEdgesAndWhite/StrongEdgesAndWhite_2_Adapted.cppipe 2<&1

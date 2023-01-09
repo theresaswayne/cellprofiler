@@ -1,0 +1,1 @@
+python batch_cellprofiler.py 1_StrongEdgesAndDark/Input 1_StrongEdgesAndDark/Result 1_StrongEdgesAndDark/StrongEdgesAndDark.cppipe 2<&1

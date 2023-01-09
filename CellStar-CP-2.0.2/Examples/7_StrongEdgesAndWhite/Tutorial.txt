@@ -1,0 +1,27 @@
+EXAMPLE USAGE 7
+STRONG EDGES AND WHITE CELL INTERIOR:
+
+1. Input imagery features:
+    In these images cells have distinctive edges (bright or white) and their interiors are white and similar intensity as the background. Also cell internals are visible which can cause over-segmentation. The general features are quite similar to EXAMPLE USAGE 3 (StrongEdgesAndGray).
+    
+    It is important to note that although both input images look similar they required different switch state.
+    
+    The initial parameters may not yield satisfactory results so in order to improve we can use auto-adaptation to find better fitting parameters (see EXAMPLE USAGE 3 for details). 
+    
+2. Pipelines:
+    [StrongEdgesAndWhite_1_Default]
+        LoadImage
+        IdentifyYeastCells (for bright edges)
+            - default parameters
+            - precision 2
+            - 'Is area without cells brighter than cell interior' set to Yes
+        IdentifyYeastCells (for bright edges)
+            - default parameters
+            - precision 2
+            - 'Is area without cells brighter than cell interior' set to No
+    
+    [StrongEdgesAndWhite_2_Adapted]
+        Pipeline with auto-parameters after auto adaptation. Only difference to [StrongEdgesAndWhite_1_Default] is in 'Autoadapted Parameters'.
+    
+3. Ready to use solution
+    The above discussion and pipelines are designed to show how the certain imagery and problems can be approached and solved. However they are not necessarily the best out-of-the-box solution. If you look for a better performing pipeline see _Solution folder.
