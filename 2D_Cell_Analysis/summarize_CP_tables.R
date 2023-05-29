@@ -1,6 +1,5 @@
 # summarize_CP_tables.R
-# R script to gather data from CellProfiler results tables
-# (Object files: cells, cytoplasm, and nuclei)
+# R script to gather data from CellProfiler object results files
 # To use: Run the script.
 # Will be prompted for a file
 
@@ -34,6 +33,6 @@ merged_intens <- left_join(mean_intens, edge_intens)
 # ---- Save new file ----
 objectName <- str_sub(basename(objectFile), 1, -5) # name of the file without higher levels or extension
 parentDir <- dirname(objectFile) # parent of the logfile
-outputFile = paste(objectName, "_intensity.csv") # spaces will be inserted
+outputFile = paste(objectName, "_summary.csv") # spaces will be inserted
 write_csv(merged_intens,file.path(parentDir, outputFile))
 
