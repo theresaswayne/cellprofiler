@@ -20,7 +20,8 @@ objectData <- read_csv(objectFile,
 
 mean_intens <- objectData %>% 
   group_by(Metadata_Experiment, Metadata_Well) %>% 
-  summarise(Mean = mean(Intensity_MeanIntensity_Green),
+  summarise(nCells = n(),
+            Mean = mean(Intensity_MeanIntensity_Green),
             IntDen = mean(Intensity_IntegratedIntensity_Green))
 
 edge_intens <- objectData %>% 
