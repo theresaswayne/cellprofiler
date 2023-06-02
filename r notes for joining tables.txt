@@ -1,0 +1,6 @@
+df <- rename_with(df, ~ paste0("Nuclei_", .x, recycle0 = TRUE), starts_with("Intensity"))
+
+
+joinery <- full_join(df, NuclearRings, by=join_by(Metadata_Experiment, FileName_DAPI, ObjectNumber), keep = NULL)
+# keeps all of the colunma, renamed to .x and .y except the keys
+
