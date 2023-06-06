@@ -1,5 +1,6 @@
 # summarize_CP_tables.R
-# R script to gather data from CellProfiler object results files
+# R script to select mean and edge intensity data from CellProfiler object results files
+# and summarize by experiment and well (designed for Cytation imager data)
 # To use: Run the script.
 # Will be prompted for a file
 
